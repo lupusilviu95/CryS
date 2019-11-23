@@ -8,18 +8,19 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatSidenavModule} from "@angular/material/sidenav";
-import {MatListModule} from "@angular/material/list";
-import {MatToolbarModule} from "@angular/material/toolbar";
-import {MatCardModule} from "@angular/material/card";
+import { MatSidenavModule } from "@angular/material/sidenav";
+import { MatListModule } from "@angular/material/list";
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatCardModule} from "@angular/material/card";
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import {MatGridListModule} from "@angular/material/grid-list";
+import { MatGridListModule} from "@angular/material/grid-list";
 import { NewsfeedComponent } from './components/newsfeed/newsfeed.component';
 import { TransactionsfeedComponent } from './components/transactionsfeed/transactionsfeed.component';
 import { CryptoCoinListComponent } from './components/crypto-coin-list/crypto-coin-list.component';
 import { SuiModule } from 'ng2-semantic-ui';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { SuiModule } from 'ng2-semantic-ui';
     MatButtonModule,
     MatIconModule,
     MatGridListModule,
-    SuiModule
+    SuiModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
