@@ -9,7 +9,7 @@ import {map, shareReplay} from "rxjs/operators";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Crys';
+  title = 'CryS';
 
   constructor(private breakpointObserver: BreakpointObserver) {}
 

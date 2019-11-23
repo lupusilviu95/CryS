@@ -1,6 +1,11 @@
 <mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <span>CryS</span>
-  </mat-toolbar-row>
+  <button
+    type="button"
+    aria-label="Toggle sidenav"
+    mat-icon-button
+    (click)="drawer.toggle()"
+    *ngIf="isHandset$ | async">
+    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+  </button>
+  <span>CryS</span>
 </mat-toolbar>
-

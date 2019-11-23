@@ -16,6 +16,10 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import {MatGridListModule} from "@angular/material/grid-list";
+import { NewsfeedComponent } from './components/newsfeed/newsfeed.component';
+import { TransactionsfeedComponent } from './components/transactionsfeed/transactionsfeed.component';
+import { CryptoCoinListComponent } from './components/crypto-coin-list/crypto-coin-list.component';
+import { SuiModule } from 'ng2-semantic-ui';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,10 @@ import {MatGridListModule} from "@angular/material/grid-list";
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    MenuComponent
+    MenuComponent,
+    NewsfeedComponent,
+    TransactionsfeedComponent,
+    CryptoCoinListComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +43,8 @@ import {MatGridListModule} from "@angular/material/grid-list";
     LayoutModule,
     MatButtonModule,
     MatIconModule,
-    MatGridListModule
+    MatGridListModule,
+    SuiModule
   ],
   providers: [],
   bootstrap: [AppComponent]
