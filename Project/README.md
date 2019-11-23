@@ -1,5 +1,15 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.19.
 
+## Workspace setup
+#### Prerequisites
+1. Install [Node Package Manager](https://www.npmjs.com/) (`npm`)
+1. Install [Angular CLI](https://angular.io/cli) (`ng`)
+```npm install -g @angular/cli```
+1. Install [ng2-semantic-ui](https://edcarroll.github.io/ng2-semantic-ui/#/getting-started)
+```npm install ng2-semantic-ui --save```
+1. Install [FlexLayout](https://github.com/angular/flex-layout)
+ ```npm i -s @angular/flex-layout @angular/cdk```
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
