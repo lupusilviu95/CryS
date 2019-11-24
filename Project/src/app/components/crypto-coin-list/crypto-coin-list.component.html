@@ -2,7 +2,7 @@
   <div class="item" *ngFor="let coin of cryptoCoins">
     <i class="huge bitcoin icon"></i>
     <div class="content">
-      <a class="header"> {{ coin.name }} </a>
+      <a href="coins/{{coin.name}}" class="header"> {{ coin.name }} </a>
       <div class="description"> {{ coin.description }} </div>
     </div>
 

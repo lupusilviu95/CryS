@@ -1,0 +1,45 @@
+#view_page_title {
+  padding-top: 1em;
+  font-size: 25px;
+  color: #000000;
+}
+p.info_title {
+  font-weight: bold;
+  margin:0;
+}
+p.info_value {
+  font-size: large;
+  margin-bottom: 1em;
+}
+
+.header{
+  padding-top: 2em;
+}
+
+.img{
+  padding: 0em;
+}
+
+.coin_info {
+  padding-left: 2em;
+}
+.mat-divider{
+  border-top-width: 2px;
+}
+
+.coin_card {
+  border-radius: 5px;
+  background: #fff;
+  width: 75%;
+  padding: 2.5em;
+}
+
+.coin_card_wrapper {
+  padding-right: 3em;
+  padding-top: 1em;
+}
+
+.coin_card_text {
+  font-family: Cambria;
+  font-size: medium;
+}

@@ -22,6 +22,7 @@ import { CryptoCoinListComponent } from './components/crypto-coin-list/crypto-co
 import { SuiModule } from 'ng2-semantic-ui';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatTableModule} from "@angular/material/table";
+import { ViewCoinComponent } from './components/view-coin/view-coin.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {MatTableModule} from "@angular/material/table";
     MenuComponent,
     NewsfeedComponent,
     TransactionsfeedComponent,
-    CryptoCoinListComponent
+    CryptoCoinListComponent,
+    ViewCoinComponent
   ],
   imports: [
     BrowserModule,
