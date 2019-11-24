@@ -1,1 +1,25 @@
-<p>transactionsfeed works!</p>
+<mat-toolbar>
+  <span>Transactions</span>
+</mat-toolbar>
+<div class="ui container">
+  <div class="ui segment">
+    <table class="ui single line very basic small compact table">
+      <thead>
+      <tr>
+        <th class="three wide">Hash</th>
+        <th class="one wide">Time</th>
+        <th class="two wide">Amount (BTC)</th>
+        <th class="two wide">Amount (USD)</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let transaction of transactionData">
+        <td><a href="#"> {{ transaction.hash.substring(0, 35).concat('...') }} </a></td>
+        <td> {{ transaction.time }} </td>
+        <td> {{ transaction.amountBtc }} </td>
+        <td> {{ transaction.amountUsd }} </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

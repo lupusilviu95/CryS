@@ -21,6 +21,7 @@ import { TransactionsfeedComponent } from './components/transactionsfeed/transac
 import { CryptoCoinListComponent } from './components/crypto-coin-list/crypto-coin-list.component';
 import { SuiModule } from 'ng2-semantic-ui';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import {MatTableModule} from "@angular/material/table";
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatIconModule,
     MatGridListModule,
     SuiModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

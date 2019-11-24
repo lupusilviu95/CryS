@@ -1,13 +1,18 @@
-<div class="ui segment">
-  <div class="ui very relaxed divided list">
-    <div class="item" *ngFor="let article of newsList">
-      <div class="right floated content">
-        <a href="#" *ngFor="let coin of article.coins">
-          {{ coin }}
-        </a>
-      </div>
-      <div class="content">
-        <div class="header"> {{ article.title }} </div>
+<mat-toolbar>
+  <span>News</span>
+</mat-toolbar>
+<div class="ui container">
+  <div class="ui segment">
+    <div class="ui very relaxed divided list">
+      <div class="item" *ngFor="let article of newsList">
+        <div class="right floated content">
+          <a href="#" *ngFor="let coin of article.coins">
+            {{ coin }}
+          </a>
+        </div>
+        <div class="content">
+          <div class="header"> {{ article.title }} </div>
+        </div>
       </div>
     </div>
   </div>

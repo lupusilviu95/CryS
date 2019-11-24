@@ -40,6 +40,8 @@ export class NewsfeedComponent implements OnInit {
 
   constructor() {
     this.newsList = this.newsList.concat(this.newsList);
+    this.newsList = this.newsList.concat(this.newsList);
+    this.newsList = this.newsList.concat(this.newsList);
   }
 
   ngOnInit() {
