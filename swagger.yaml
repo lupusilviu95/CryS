@@ -1,0 +1,415 @@
+---
+swagger: "2.0"
+info:
+  description: CryS REST API used to interract with the Linked Data
+  version: 1.0.0
+  title: CryS API
+  contact:
+    email: lupusilviu95@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+host: virtserver.swaggerhub.com
+basePath: /CryS/CryS_REST_API/1.0.0
+tags:
+- name: news
+  description: Operations available over the news entities
+- name: numismatics
+  description: Operations available over the coin entities
+- name: transactions
+  description: Operations available over the transaction entities
+- name: predictions
+  description: Operation allowing access to prediction results
+schemes:
+- https
+paths:
+  /news:
+    get:
+      tags:
+      - news
+      summary: retrieve news
+      description: |
+        By passing in the appropriate options, you can search for news
+      operationId: getNews
+      produces:
+      - application/json
+      parameters:
+      - name: query
+        in: query
+        description: optional search string to refine results
+        required: false
+        type: string
+      - name: symbol
+        in: query
+        description: only return news about cryptocurrency identified by provided three-letter symbol
+        required: false
+        type: string
+      - name: limit
+        in: query
+        description: maximum number of records to return
+        required: false
+        type: integer
+        maximum: 50
+        minimum: 0
+        format: int32
+      responses:
+        200:
+          description: news articles matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/NewsArticle'
+        400:
+          description: bad input parameter
+    post:
+      tags:
+      - news
+      summary: adds a news article
+      description: Adds a news article
+      operationId: addNews
+      consumes:
+      - multipart/form-data
+      produces:
+      - application/json
+      parameters:
+      - name: title
+        in: formData
+        description: Title of the news
+        required: true
+        type: string
+      - name: description
+        in: formData
+        description: The news description
+        required: true
+        type: string
+      - name: source_url
+        in: formData
+        description: Source URL
+        required: false
+        type: string
+      - name: symbol
+        in: formData
+        description: Three-letter code of coin the news is about
+        required: false
+        type: string
+      responses:
+        201:
+          description: item created
+        400:
+          description: bad request, invalid input
+        409:
+          description: an existing item already exists
+  /coins:
+    get:
+      tags:
+      - numismatics
+      summary: searches coins
+      description: |
+        retrieve coins that match the given searchString
+      operationId: getCoins
+      produces:
+      - application/json
+      parameters:
+      - name: query
+        in: query
+        description: optional search string to refine results
+        required: false
+        type: string
+      - name: limit
+        in: query
+        description: maximum number of records to return
+        required: false
+        type: integer
+        maximum: 50
+        minimum: 0
+        format: int32
+      responses:
+        200:
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Coin'
+        400:
+          description: bad input parameter
+    post:
+      tags:
+      - numismatics
+      summary: create a new cryptocoin
+      description: Adds a new cryptocoin
+      operationId: addCoin
+      consumes:
+      - multipart/form-data
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: coin
+        description: Coin to add
+        required: false
+        schema:
+          $ref: '#/definitions/Coin'
+      responses:
+        201:
+          description: item created
+        400:
+          description: invalid input, object invalid
+        409:
+          description: an existing item already exists
+  /coins/{id}:
+    get:
+      tags:
+      - numismatics
+      summary: retrieves detailed coin info
+      description: |
+        retrieve detailed coin info
+      operationId: getCoinDetails
+      produces:
+      - application/json
+      parameters:
+      - name: id
+        in: path
+        description: id of the cryptocoin
+        required: true
+        type: string
+      responses:
+        200:
+          description: details about coin identified by id
+          schema:
+            type: object
+        404:
+          description: no coin with specified id
+    delete:
+      tags:
+      - numismatics
+      summary: remove a coin
+      description: Removes a coin
+      operationId: deleteCoin
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: id
+        in: path
+        description: id of the cryptocoin
+        required: true
+        type: string
+      responses:
+        200:
+          description: cryptocoin deleted successfully
+        404:
+          description: no coin with specified id
+    patch:
+      tags:
+      - numismatics
+      summary: adds an inventory item
+      description: Adds an item to the system
+      operationId: updateCoin
+      consumes:
+      - multipart/form-data
+      produces:
+      - application/json
+      parameters:
+      - name: id
+        in: path
+        description: id of the cryptocoin
+        required: true
+        type: string
+      - name: name
+        in: formData
+        description: name of the cryptocoin
+        required: false
+        type: string
+      - name: symbol
+        in: formData
+        description: three-letter name of cryptocoin
+        required: false
+        type: string
+      - name: market_cap
+        in: formData
+        description: total available supply times price per unit
+        required: false
+        type: integer
+      - name: volume
+        in: formData
+        description: volume in dollars traded in the past 24h
+        required: false
+        type: integer
+      - name: circulating_supply
+        in: formData
+        description: number of existing units
+        required: false
+        type: integer
+      - name: change_24h
+        in: formData
+        description: price variation in percentage
+        required: false
+        type: string
+      responses:
+        200:
+          description: coin updated
+        400:
+          description: invalid input, no value to update provided
+        404:
+          description: no coin with this id was found
+  /transactions:
+    get:
+      tags:
+      - transactions
+      summary: retrieves transactions
+      description: |
+        Retrieves transactions for a given symbol
+      operationId: getTransactions
+      produces:
+      - application/json
+      parameters:
+      - name: symbol
+        in: query
+        description: three-letter cryptcurrency code to retrieve transactions for
+        required: true
+        type: string
+      - name: limit
+        in: query
+        description: maximum number of records to return
+        required: false
+        type: integer
+        maximum: 50
+        minimum: 0
+        format: int32
+      responses:
+        200:
+          description: transactions matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Transaction'
+        204:
+          description: no available transcations for provided symbol
+        400:
+          description: bad input parameter
+        404:
+          description: provided symbol does not exist
+  /predictions:
+    get:
+      tags:
+      - predictions
+      summary: predict coin values
+      description: |
+        Predicts future value of requested cryptocurrency
+      operationId: predictValue
+      produces:
+      - application/json
+      parameters:
+      - name: symbol
+        in: query
+        description: three-letter cryptcurrency code to predict value of
+        required: true
+        type: string
+      - name: period
+        in: query
+        description: forecast period in days
+        required: false
+        type: integer
+        maximum: 7
+        minimum: 1
+        format: int32
+      responses:
+        200:
+          description: predicted values for given symbol
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Prediction'
+        400:
+          description: bad input parameter
+        404:
+          description: symbol not found
+definitions:
+  NewsArticle:
+    type: object
+    required:
+    - description
+    - title
+    properties:
+      title:
+        type: string
+        example: What is Blockchain Technology? How Secure is it?
+      description:
+        type: string
+        example: Widget Adapter
+      symbol:
+        type: string
+        example: Bitcoin’s inception in 2009 introduced the concept of hard money to the world. A peer-to-peer financial settlement system which is free from centralized control. It also gave an insight into a system that democratizes data storage – blockchain. It is called today is the bedrock on which Bitcoin functions.  Made up of two words, ‘block’ and ‘chain’, blockchain is literally a chain or a series
+      source_url:
+        type: string
+        format: URL
+        example: https://bitcoinist.com/what-is-blockchain-technology-how-secure-is-it/
+  Coin:
+    required:
+    - circulating_supply
+    - market_cap
+    - name
+    - price
+    - symbol
+    - volume
+    properties:
+      id:
+        type: string
+        format: uuid
+        example: 11c46d0c-db81-4827-ae50-cb1ec013a931
+      name:
+        type: string
+        example: Bitcoin
+      symbol:
+        type: string
+        example: BTC
+      market_cap:
+        type: integer
+        example: 132,324,803,816
+      price:
+        type: string
+        example: "8000"
+      volume:
+        type: integer
+        example: 20,216,481,073
+      circulating_supply:
+        type: integer
+        example: 18,064,675
+      change_24h:
+        type: integer
+        example: "0.75"
+  Transaction:
+    required:
+    - amount
+    - from_address
+    - hash
+    - symbol
+    - to_address
+    properties:
+      hash:
+        type: string
+        example: 93f3abc4f04ffb0b190ba3030e7de3f25cd9e24a19f3fd68f0d3493864efb171
+      from_address:
+        type: string
+        example: bc1qckrhuljmamava4lweum6vmvdh80f3dtsm7shl25fzdhymkwq0q6s0snfw0
+      to_address:
+        type: string
+        example: 3HQTcDcvmYKs5f1DU3uVH8ZJFk9dYYxyao
+      symbol:
+        type: string
+        example: BTC
+      amount:
+        type: string
+        example: "1.9993"
+  Prediction:
+    required:
+    - currency
+    - value
+    properties:
+      value:
+        type: string
+        example: "5000"
+      currency:
+        type: string
+        example: $
