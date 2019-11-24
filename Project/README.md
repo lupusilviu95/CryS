@@ -1,7 +1,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.19.
 
 ## Workspace setup
-#### Prerequisites
+#### Installing utilities/libraries
 1. Install [Node Package Manager](https://www.npmjs.com/) (`npm`)
 1. Install [Angular CLI](https://angular.io/cli) (`ng`)
 ```npm install -g @angular/cli```
@@ -9,6 +9,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ```npm install ng2-semantic-ui --save```
 1. Install [FlexLayout](https://github.com/angular/flex-layout)
  ```npm i -s @angular/flex-layout @angular/cdk```
+1. Install [MomentJs](https://momentjs.com/)
+```npm install moment --save```
 
 ## Development server
 
