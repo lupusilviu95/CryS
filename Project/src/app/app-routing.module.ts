@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {HomeComponent} from "./components/home-page/home/home.component";
-import {CryptoCoinListComponent} from "./components/crypto-coin-list/crypto-coin-list.component";
-import {ViewCoinComponent} from "./components/view-coin/view-coin.component";
+import {CryptoCoinListComponent} from "./components/numismatics/crypto-coin-list/crypto-coin-list.component";
+import {ViewCoinComponent} from "./components/numismatics/view-coin/view-coin.component";
 import {ProjectInfoComponent} from "./components/project-info/project-info.component";
 
 

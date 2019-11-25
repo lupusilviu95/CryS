@@ -18,11 +18,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatGridListModule} from "@angular/material/grid-list";
 import { NewsfeedComponent } from './components/home-page/newsfeed/newsfeed.component';
 import { TransactionsfeedComponent } from './components/home-page/transactionsfeed/transactionsfeed.component';
-import { CryptoCoinListComponent } from './components/crypto-coin-list/crypto-coin-list.component';
+import { CryptoCoinListComponent } from './components/numismatics/crypto-coin-list/crypto-coin-list.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatTableModule} from "@angular/material/table";
-import { ViewCoinComponent } from './components/view-coin/view-coin.component';
+import { ViewCoinComponent } from './components/numismatics/view-coin/view-coin.component';
 import { ProjectInfoComponent } from './components/project-info/project-info.component';
+import {MatExpansionModule} from "@angular/material/expansion";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { ProjectInfoComponent } from './components/project-info/project-info.com
     MatIconModule,
     MatGridListModule,
     FlexLayoutModule,
-    MatTableModule
+    MatTableModule,
+    MatExpansionModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

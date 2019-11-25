@@ -14,11 +14,37 @@
               </div>
             </div>
             <div class="item">
-              <i class="large sitemap icon"></i>
+              <i class="large code icon"></i>
               <div class="content">
                 <a href="https://app.swaggerhub.com/apis/CryS/CryS_REST_API/1.0.0"> Open API Reference </a>
               </div>
             </div>
+            <div class="item" (click)="toggleDiagrams()">
+              <i class="large sitemap icon"></i>
+              <div class="content">
+                <a> Diagrams </a>
+              </div>
+            </div>
+            <mat-accordion hideToggle [hidden]="!showingDiagrams">
+              <mat-expansion-panel
+                [expanded]="this.showingDiagrams">
+                  <mat-expansion-panel-header>
+
+                  </mat-expansion-panel-header>
+                  <div class="ui container">
+                    <div class="ui center aligned one column grid">
+                      <div class="ui column" *ngFor="let diagram of diagrams">
+                        <a href="{{ diagram.path }}" class="ui big rounded image">
+                          <div class="ui segment">
+                            <img src="{{ diagram.path }}" alt="{{ diagram.path }}"/>
+                            {{ diagram.name }}
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </mat-expansion-panel>
+            </mat-accordion>
           </div>
         </div>
       </div>
