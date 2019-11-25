@@ -3,10 +3,10 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { MenuComponent } from './components/menu/menu.component';
+import { HomeComponent } from './components/home-page/home/home.component';
+import { HeaderComponent } from './components/site-frame/header/header.component';
+import { FooterComponent } from './components/site-frame/footer/footer.component';
+import { MenuComponent } from './components/site-frame/menu/menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatListModule } from "@angular/material/list";
@@ -16,13 +16,14 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatGridListModule} from "@angular/material/grid-list";
-import { NewsfeedComponent } from './components/newsfeed/newsfeed.component';
-import { TransactionsfeedComponent } from './components/transactionsfeed/transactionsfeed.component';
+import { NewsfeedComponent } from './components/home-page/newsfeed/newsfeed.component';
+import { TransactionsfeedComponent } from './components/home-page/transactionsfeed/transactionsfeed.component';
 import { CryptoCoinListComponent } from './components/crypto-coin-list/crypto-coin-list.component';
 import { SuiModule } from 'ng2-semantic-ui';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatTableModule} from "@angular/material/table";
 import { ViewCoinComponent } from './components/view-coin/view-coin.component';
+import { ProjectInfoComponent } from './components/project-info/project-info.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ViewCoinComponent } from './components/view-coin/view-coin.component';
     NewsfeedComponent,
     TransactionsfeedComponent,
     CryptoCoinListComponent,
-    ViewCoinComponent
+    ViewCoinComponent,
+    ProjectInfoComponent
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
  ```npm i -s @angular/flex-layout @angular/cdk```
 1. Install [MomentJs](https://momentjs.com/)
 ```npm install moment --save```
+1. Install [normalize-scss](https://www.npmjs.com/package/normalize-scss)
+```npm install --save normalize-scss```
 
 ## Development server
 
