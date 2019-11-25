@@ -19,7 +19,6 @@ import { MatGridListModule} from "@angular/material/grid-list";
 import { NewsfeedComponent } from './components/home-page/newsfeed/newsfeed.component';
 import { TransactionsfeedComponent } from './components/home-page/transactionsfeed/transactionsfeed.component';
 import { CryptoCoinListComponent } from './components/crypto-coin-list/crypto-coin-list.component';
-import { SuiModule } from 'ng2-semantic-ui';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatTableModule} from "@angular/material/table";
 import { ViewCoinComponent } from './components/view-coin/view-coin.component';
@@ -50,7 +49,6 @@ import { ProjectInfoComponent } from './components/project-info/project-info.com
     MatButtonModule,
     MatIconModule,
     MatGridListModule,
-    SuiModule,
     FlexLayoutModule,
     MatTableModule
   ],

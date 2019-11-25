@@ -2,17 +2,17 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Workspace setup
 #### Installing utilities/libraries
-1. Install [Node Package Manager](https://www.npmjs.com/) (`npm`)
-1. Install [Angular CLI](https://angular.io/cli) (`ng`)
+1. Install [Node Package Manager](https://www.npmjs.com/)
+1. Install [Angular CLI](https://angular.io/cli)
 ```npm install -g @angular/cli```
-1. Install [ng2-semantic-ui](https://edcarroll.github.io/ng2-semantic-ui/#/getting-started)
-```npm install ng2-semantic-ui --save```
 1. Install [FlexLayout](https://github.com/angular/flex-layout)
  ```npm i -s @angular/flex-layout @angular/cdk```
 1. Install [MomentJs](https://momentjs.com/)
 ```npm install moment --save```
 1. Install [normalize-scss](https://www.npmjs.com/package/normalize-scss)
 ```npm install --save normalize-scss```
+1. Install [angular-cli-ghpages](https://www.npmjs.com/package/angular-cli-ghpages)
+```npm install -g angular-cli-ghpages```
 
 ## Development server
 
@@ -33,6 +33,10 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 ## Running end-to-end tests
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+## Deploying to [GitHub Pages](https://pages.github.com/)
+
+Run `build_and_deploy.bat`
 
 ## Further help
 
