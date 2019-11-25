@@ -25,12 +25,10 @@
                 <a> Diagrams </a>
               </div>
             </div>
-            <mat-accordion hideToggle [hidden]="!showingDiagrams">
-              <mat-expansion-panel
-                [expanded]="this.showingDiagrams">
-                  <mat-expansion-panel-header>
-
-                  </mat-expansion-panel-header>
+            <mat-accordion hideToggle [hidden]="!showingDiagrams" [displayMode]="'flat'" (click)="toggleDiagrams()">
+              <mat-expansion-panel [expanded]="this.showingDiagrams">
+                <mat-expansion-panel-header>
+                </mat-expansion-panel-header>
                   <div class="ui container">
                     <div class="ui center aligned one column grid">
                       <div class="ui column" *ngFor="let diagram of diagrams">
