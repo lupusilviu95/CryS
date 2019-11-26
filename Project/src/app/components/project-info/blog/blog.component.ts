@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ProjectInfoComponent} from "../project-info.component";
 
 @Component({
   selector: 'app-blog',
@@ -6,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./blog.component.scss']
 })
 export class BlogComponent implements OnInit {
-
+  openApiLink = ProjectInfoComponent.openApiDocumentationLink;
+  gitHubPagesLink = ProjectInfoComponent.gitHubPagesLink;
   constructor() { }
 
   ngOnInit() {

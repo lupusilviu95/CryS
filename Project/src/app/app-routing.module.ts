@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'project-info/blog', component: BlogComponent },
 
   // Route unrecognised routes to the home page
-  { path: '*', component: HomeComponent }
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

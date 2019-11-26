@@ -5,21 +5,14 @@ import {NavigationExtras, Router} from "@angular/router";
 @Component({
   selector: 'app-project-info',
   templateUrl: './project-info.component.html',
-  styleUrls: ['./project-info.component.scss']
+  styleUrls: ['./project-info.component.scss'],
+
 })
 export class ProjectInfoComponent implements OnInit {
-  links = [
-    {
-      'url': 'project-info/scholarly-html',
-      'name': 'Scholarly Html Report',
-      'icon': 'large text file icon'
-    },
-    {
-      'url': 'https://app.swaggerhub.com/apis/CryS/CryS_REST_API/1.0.0',
-      'name': 'Open API Reference',
-      'icon': 'large code icon'
-    }
-  ];
+  static openApiDocumentationLink = 'https://app.swaggerhub.com/apis/CryS/CryS_REST_API/1.0.0';
+  static gitHubPagesLink = 'https://wade-crys.github.io/CryS/';
+
+  openApiLink = ProjectInfoComponent.openApiDocumentationLink;
   diagrams = [
     {
       'path': 'assets/scholarly-html/images/general_architecture.svg',
@@ -39,6 +32,8 @@ export class ProjectInfoComponent implements OnInit {
 
   ngOnInit() {
   }
+
+
 
   toggleDiagrams() {
     console.log(this.showingDiagrams);
