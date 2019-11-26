@@ -1,1 +1,1 @@
-ng build --prod --base-href "/Crys/" && ngh --dir /dist/Crys && PAUSE
+ng build --prod --base-href "/CryS/" && ngh --dir /dist/CryS && PAUSE
