@@ -26,6 +26,7 @@ import { ProjectInfoComponent } from './components/project-info/project-info.com
 import { MatExpansionModule } from "@angular/material/expansion";
 import { FormsModule } from "@angular/forms";
 import { ScholarlyHtmlComponent } from './components/project-info/scholarly-html/scholarly-html.component';
+import { BlogComponent } from './components/project-info/blog/blog.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ScholarlyHtmlComponent } from './components/project-info/scholarly-html
     CryptoCoinListComponent,
     ViewCoinComponent,
     ProjectInfoComponent,
-    ScholarlyHtmlComponent
+    ScholarlyHtmlComponent,
+    BlogComponent
   ],
   imports: [
     BrowserModule,
