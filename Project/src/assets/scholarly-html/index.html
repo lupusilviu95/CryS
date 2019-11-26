@@ -71,20 +71,74 @@
       <section typeof="sa:Abstract" id="abstract">
         <h2>Abstract</h2>
         <p>
-          Abstract goes here.
+            A cryptocurrency is a digital or virtual currency that is secured by cryptography, which makes it nearly impossible to counterfeit or double-spend. Many cryptocurrencies are 
+            decentralized networks based on blockchain technology—a distributed ledger enforced by a disparate network of computers. 
+            A defining feature of cryptocurrencies is that they are generally not issued by any central authority, rendering them theoretically immune to government interference or manipulation.
+        </p>
+        <p>
+            Following the exponential increase in price of the first cryptocurrency, Bitcoin, from $2 USD in December 2011 to almost $20 000 USD in December 2017, over 6000 
+            altcoins (alternative variants of cryptocurrency other than Bitcoin) were created. Many people regret having traded hundreds of Bitcoins for a pizza, and aven more got rich from mining Bitcoins
+            and other altcoins, leading to hyperinflated prices in computer parts (GPUs and CPUs) used in mining rigs.
+        </p>
+        <p>
+          It seems that cryptocurrencies are here to stay, and as it is the case with any other domain, being informed is very important. CryS aims to provide a one-stop shop about anything related to
+          altcoins: news, recent transactions, market trends, price history, price forecast and details about what makes each altcoin unique. 
         </p>
       </section>
       <section typeof="sa:MaterialsAndMethods" id="features">
-          <h2>Features</h2>
-          <p>
-            Features go here.
-          </p>
+          <h2>Proposed solution</h2>
+          <p>CryS will incorporate the following main functionalities:</p>
+            <ul>
+              <li>aggregated news feed about most popular cryptocurrencies</li>
+              <li>transaction feed on most popular blockchains</li>
+              <li>cryptocurrency ranking based on market cap and available supply</li>
+              <li>details of interest about cryptocurrency, such as available supply, price, trading symbol, blockhain particularities</li>
+              <li>machine learning prediction of future price value</li>
+            </ul>          
+          <p>On top of providing useful functionality to end users, CryS will align itself to the latest software engineering best practices and approaches by incorporating the following principles:</p>
+            <ul>
+              <li>modular architecture based on microservices</li>
+              <li>servless approach</li>
+              <li>performance and scalability</li>
+              <li>well documented, developer friendly API</li>
+              <li>publicly exposing the underlying open linked data</li>
+            </ul>
       </section>
       <section typeof="sa:MaterialsAndMethods" id="architecture">
           <h2>Architecture</h2>
-          <p>
-            Architecture goes here. Diagram. Module breakdown and explanation.
-          </p>
+            <figure typeof="sa:Image">
+                  <img src="images/general_architecture.svg" width="880" height="655">
+                    <figcaption>The general architecture of CryS</figcaption>
+            </figure>
+            <p>
+              As mentioned previously, CryS will have a modular architecture based on microservices while also following the serverless paradigm. Given these considerations, we have opted to use 
+              Amazon Lambda as the backbone of CryS: multiple lambda functions can be grouped together to create a microservice, new functionality can be added to a microservice by adding a new 
+              lambda function, and new microservices can be spun up just as easily thanks to the great integration between Lambda and API Gateway. 
+            </p>
+            <p>Next, we dive deeper into each microservice:</p>
+            <ul>
+              <li>
+                <p>
+                    <code>News microservice:</code> responsible with sourcing the news articles about cryptocurrencies and mapping them to existing entities in the system
+                </p>
+              </li>
+              <li>
+                <p>
+                      <code>Transactions microservice:</code> provides access to transaction info of various cryptocurrencies
+                  </p>
+              </li>
+              <li>
+                  <p>
+                      <code>Numismatics microservice:</code> the most complex of the microservices, it handles almost everything related to cryptocurrencies, except future price predictions
+                  </p>
+              </li>
+              <li>
+                  <p>
+                      <code>Predictions microservice:</code> uses machine learning to predict the future price of a certain cryptocurrency.
+                  </p>
+              </li>
+            </ul>
+            
       </section>
       <section typeof="sa:MaterialsAndMethods" id="design">
           <h2>Design</h2>
@@ -98,11 +152,19 @@
             </p>
       </section>
       <section typeof="sa:MaterialsAndMethods" id="data_modelling_sourcing">
-          <h2>Data sourcing and data modelling</h2>
+          <h2>Data sourcing and data modeling</h2>
           <h3>Data sourcing</h3>
             <p>
-              What external APIs we're gonna be using goes here.
+              In order to provide the users with accurate and up to date information, CryS will leverage multiple APIs:
             </p>
+            <ul>
+              <li><p><code><a href="https://cryptopanic.com/developers/api/">Cryptopanic API</a></code>: offers programatic access to a suite of cryptocurrency-related news gathered from multiple sources</p></li>
+              <li><p><code><a href="https://github.com/blockchain/api-v1-client-python">Blockchain API</a></code>: offers programatic access to transactions on the blockchains belonging to three of the most mopular coins: BTC, ETH and BCH</p></li>
+              <li><p><code><a href="https://pro.coinmarketcap.com/migrate/">Coinmarketcap API</a></code>: provides detailed information about  individual cryptocoins, such as price, market cap, volume, circulating supply etc.</p></li>
+            </ul>
+          <p>
+            Also, concepts modeled by CryS will also be linked to pre-existing ones from <code><a href="https://wiki.dbpedia.org/">DBPedia</a></code> and <code><a href="https://doacc.github.io/">DOACC</a></code>.
+          </p>
           <h3>Data modelling</h3>
             <p>
               How we are going to model data goes here.

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatExpansionPanel} from "@angular/material/expansion";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-project-info',
@@ -7,6 +8,18 @@ import {MatExpansionPanel} from "@angular/material/expansion";
   styleUrls: ['./project-info.component.scss']
 })
 export class ProjectInfoComponent implements OnInit {
+  links = [
+    {
+      'url': 'project-info/scholarly-html',
+      'name': 'Scholarly Html Report',
+      'icon': 'large text file icon'
+    },
+    {
+      'url': 'https://app.swaggerhub.com/apis/CryS/CryS_REST_API/1.0.0',
+      'name': 'Open API Reference',
+      'icon': 'large code icon'
+    }
+  ];
   diagrams = [
     {
       'path': 'assets/images/architecture.png',
@@ -22,13 +35,18 @@ export class ProjectInfoComponent implements OnInit {
     }];
 
   showingDiagrams: boolean = false;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
   toggleDiagrams() {
-    console.log(this.showingDiagrams)
+    console.log(this.showingDiagrams);
     this.showingDiagrams = !this.showingDiagrams;
+  }
+
+  navigate(path) {
+    console.log(`navigate(${path})`);
+    this.router.navigate(path);
   }
 }
