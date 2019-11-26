@@ -7,10 +7,16 @@
       <div class="ui container">
         <div class="ui segment">
           <div class="ui very relaxed big selection list">
-            <div class="item" *ngFor="let link of links">
-              <i class="{{ link.icon }}"></i>
+            <div class="item" routerLink="../project-info/scholarly-html">
+              <i class="text file large icon"></i>
               <div class="content">
-                <a href="{{ link.url }}"> {{ link.name}} </a>
+                <a href="scholarly-html/index.html"> Scholarly Html Report </a>
+              </div>
+            </div>
+            <div class="item" onclick="location.href='https://app.swaggerhub.com/apis/CryS/CryS_REST_API/1.0.0'">
+              <i class="large code icon"></i>
+              <div class="content">
+                <a href="https://app.swaggerhub.com/apis/CryS/CryS_REST_API/1.0.0"> Open API Reference </a>
               </div>
             </div>
             <div class="item" (click)="toggleDiagrams()">

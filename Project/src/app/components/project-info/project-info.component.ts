@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatExpansionPanel} from "@angular/material/expansion";
-import {Router} from "@angular/router";
+import {NavigationExtras, Router} from "@angular/router";
 
 @Component({
   selector: 'app-project-info',
@@ -46,7 +46,11 @@ export class ProjectInfoComponent implements OnInit {
   }
 
   navigate(path) {
+    let navigationExtras: NavigationExtras = {
+      queryParamsHandling: 'preserve',
+      preserveFragment: true
+    };
     console.log(`navigate(${path})`);
-    this.router.navigate(path);
+    this.router.navigateByUrl(path, navigationExtras);
   }
 }
