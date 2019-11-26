@@ -136,6 +136,7 @@ p {
   orphans: 2;
   margin-top:0;
   margin-bottom: 1em;
+  text-align: justify;
 }
 h1, h2, h3 {
   font-variant: small-caps;

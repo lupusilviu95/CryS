@@ -30,7 +30,7 @@ export class ProjectInfoComponent implements OnInit {
       'name': 'Use Case Diagram'
     },
     {
-      'path': 'assets/images/sequence_diagram.png',
+      'path': 'assets/images/sequence_diagram.svg',
       'name': 'Sequence Diagram'
     }];
 
