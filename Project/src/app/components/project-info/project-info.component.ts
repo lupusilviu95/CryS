@@ -26,7 +26,7 @@ export class ProjectInfoComponent implements OnInit {
       'name': 'Architecture'
     },
     {
-      'path': 'assets/images/use_case_diagram.png',
+      'path': 'assets/images/use_case_diagram.svg',
       'name': 'Use Case Diagram'
     },
     {
