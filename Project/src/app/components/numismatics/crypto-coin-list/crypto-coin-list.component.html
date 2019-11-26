@@ -6,9 +6,9 @@
     </div>
     <div class="ui container">
       <div class="ui padded segment">
-        <div class="ui very relaxed large divided list">
+        <div class="ui very relaxed divided list">
           <div class="item" *ngFor="let coin of cryptoCoins">
-            <i class="huge black bitcoin icon"></i>
+            <img class="ui tiny image" src="assets/icons/{{coin.icon}}" routerLink="{{coin.name}}" style="cursor: pointer">
             <div class="content">
               <a href="numismatics/{{coin.name}}" class="header"> {{ coin.name }} </a>
               <div class="description"> {{ coin.description }} </div>
