@@ -22,7 +22,7 @@ export class ProjectInfoComponent implements OnInit {
   ];
   diagrams = [
     {
-      'path': 'assets/images/architecture.png',
+      'path': 'assets/scholarly-html/images/general_architecture.svg',
       'name': 'Architecture'
     },
     {
