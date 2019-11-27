@@ -77,7 +77,7 @@
         </p>
         <p>
             Following the exponential increase in price of the first cryptocurrency, Bitcoin, from $2 USD in December 2011 to almost $20 000 USD in December 2017, over 6000 
-            altcoins (alternative variants of cryptocurrency other than Bitcoin) were created. Many people regret having traded hundreds of Bitcoins for a pizza, and aven more got rich from mining Bitcoins
+            altcoins (alternative variants of cryptocurrency other than Bitcoin) were created. Many people regret having traded hundreds of Bitcoins for a pizza, and even more got rich from mining Bitcoins
             and other altcoins, leading to hyperinflated prices in computer parts (GPUs and CPUs) used in mining rigs.
         </p>
         <p>
@@ -92,13 +92,13 @@
               <li>aggregated news feed about most popular cryptocurrencies</li>
               <li>transaction feed on most popular blockchains</li>
               <li>cryptocurrency ranking based on market cap and available supply</li>
-              <li>details of interest about cryptocurrency, such as available supply, price, trading symbol, blockhain particularities</li>
+              <li>details of interest about cryptocurrency, such as available supply, price, trading symbol, blockchain particularities</li>
               <li>machine learning prediction of future price value</li>
             </ul>          
           <p>On top of providing useful functionality to end users, CryS will align itself to the latest software engineering best practices and approaches by incorporating the following principles:</p>
             <ul>
               <li>modular architecture based on microservices</li>
-              <li>servless approach</li>
+              <li>serverless approach</li>
               <li>performance and scalability</li>
               <li>well documented, developer friendly API</li>
               <li>publicly exposing the underlying open linked data</li>
@@ -159,7 +159,7 @@
           <p>
             This is the first page CryS users come in contact with. On the left side of the page, recent news about cryptocurrencies are displayed; this a great way for users to 
             catch up with what's been happening in the world of cryptocoins. On the right side of the page, we can see a feed of the latest transactions on popular blockchains; this gives the user 
-            insight into the dynamicity of the market.
+            insight into the dynamics of the market.
           </p>
           <figure typeof="sa:Image">
             <img src="images/crys_numismatics_page.png">
@@ -167,14 +167,14 @@
           </figure>
           <p>
             The Numismatics page displays the collection of cryptocurrencies CryS has information on. A search option will be available, as well as the ability to sort the cryptocurrencies 
-            by various fields, such as price, market cap or 24h fluctuation. Clicking on an entry will take the user to that coin's detail page.
+            by various fields, such as price, market cap or 24h fluctuation. Clicking on an entry will take the user to that coin's details page.
           </p>
           <figure typeof="sa:Image">
             <img src="images/crys_coin_details_page.png">
               <figcaption>Coin details page - get to know the coin</figcaption>
           </figure>
           <p>
-            The coin detail page provides a brief description, as well as useful links to news about that coin specifically (if any). The main focus on this page is the graph illustrating the price
+            The coin details page provides a brief description, as well as useful links to news about that coin specifically (if any). The main focus on this page is the graph illustrating the price
             prediction for that coin.
           </p>
       </section>
@@ -185,23 +185,26 @@
               In order to provide the users with accurate and up to date information, CryS will leverage multiple APIs:
             </p>
             <ul>
-              <li><p><code><a href="https://cryptopanic.com/developers/api/">Cryptopanic API</a></code>: offers programatic access to a suite of cryptocurrency-related news gathered from multiple sources</p></li>
-              <li><p><code><a href="https://github.com/blockchain/api-v1-client-python">Blockchain API</a></code>: offers programatic access to transactions on the blockchains belonging to three of the most mopular coins: BTC, ETH and BCH</p></li>
+              <li><p><code><a href="https://cryptopanic.com/developers/api/">Cryptopanic API</a></code>: offers programmatic access to a suite of cryptocurrency-related news gathered from multiple sources</p></li>
+              <li><p><code><a href="https://github.com/blockchain/api-v1-client-python">Blockchain API</a></code>: offers programmatic access to transactions on the blockchains belonging to three of the most popular coins: BTC, ETH and BCH</p></li>
               <li><p><code><a href="https://pro.coinmarketcap.com/migrate/">Coinmarketcap API</a></code>: provides detailed information about  individual cryptocoins, such as price, market cap, volume, circulating supply etc.</p></li>
             </ul>
           <p>
             Also, concepts modeled by CryS will also be linked to pre-existing ones from <code><a href="https://wiki.dbpedia.org/">DBPedia</a></code> and <code><a href="https://doacc.github.io/">DOACC</a></code>.
           </p>
           <h3>Data modelling</h3>
-            <p>
-              How we are going to model data goes here.
-            </p>
+          <figure typeof="sa:Image">
+            <img src="images/data_modeling_diagram.svg">
+              <figcaption>CryS data model</figcaption>
+          </figure>
       </section>
       <section typeof="sa:ReferenceList" id="references">
           <h2>References</h2>
-          <p>
-            References go here.
-          </p>
+          <ol>
+            <li><a href="https://doacc.github.io/">DOACC</a></li>
+            <li><a href="https://cryptopanic.com/">CrytpoPanic</a></li>
+            <li><a href="https://coinmarketcap.com/">CoinMarketCap</a></li>
+          </ol>
         </section>
     </article>
   </body>
