@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CryptoCoinModel } from '../models/crypto-coin';
+import { CryptoCoinModel } from '../models/crypto-coin-model';
 
 @Injectable({
   providedIn: 'root'

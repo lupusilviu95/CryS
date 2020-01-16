@@ -10,8 +10,8 @@
           <div class="item" *ngFor="let coin of coins">
             <img class="ui tiny image" src="assets/icons/{{'ethereum-2-256.png'}}" routerLink="{{coin.name}}" style="cursor: pointer">
             <div class="content">
-              <a href="numismatics/{{coin.name}}" class="header"> {{ coin.name }} </a>
-              <div class="description"> {{ coin.description }} </div>
+              <a href="numismatics/{{coin.id.value}}" class="header"> {{ coin.name.value }} </a>
+              <div class="description"> {{ coin.description.value }} </div>
             </div>
           </div>
         </div>

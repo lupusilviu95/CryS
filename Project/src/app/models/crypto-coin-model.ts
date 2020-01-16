@@ -167,37 +167,3 @@ export interface Platform {
   type: string;
   value: string;
 }
-
-
-
-
-
-
-
-// export interface CryptoCoinModel {
-//   coin: string;
-//   id: string;
-//   cmc_rank: string;
-//   name: string;
-//   description: string;
-//   symbol: string;
-//   circulating_supply: string;
-//   date_added: string;
-//   logo: string;
-//   market_cap: string;
-//   percent_change_24h: string;
-//   percent_change_7d: string;
-//   price: string;
-//   status: string;
-//   mineable: string;
-//   announcement: string;
-//   chat: string;
-//   explorer: string;
-//   message_board: string;
-//   reddit: string;
-//   source_code: string;
-//   technical_doc: string;
-//   twitter: string;
-//   website: string;
-//   platform: string;
-// }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { of } from 'rxjs';
 import { flatMap } from 'rxjs/operators';
-import { CryptoCoinModel, GetCryptoCoinsResult } from '../../../models/crypto-coin';
+import { CryptoCoinModel, GetCryptoCoinsResult } from '../../../models/crypto-coin-model';
 import { CryptoCoinService } from '../../../services/crypto-coin.service';
 
 @Component({

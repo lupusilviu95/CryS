@@ -16,11 +16,11 @@
               <div class="ui padded items">
                 <div class="item">
                   <div class="ui tiny image">
-                    <img src="assets/icons/bitcoin-256.png">
+                    <img src="{{coin.logo.value}}" alt="{{coin.name.value}} logo">
                   </div>
                   <div class="content">
-                    <h1 class="header">Bitcoin</h1>
-                    <div class="description">(BTC)</div>
+                    <h1 class="header">{{coin.name.value}}</h1>
+                    <div class="description">({{coin.symbol.value}})</div>
                   </div>
                 </div>
               </div>
@@ -32,11 +32,15 @@
                     <h3>
                       Current price
                     </h3>
-                    <span>$148.19</span>
+                    <span>{{coin.price.value}}</span>
                     <h3>
-                      24hr change
+                      Percent Change 24h
                     </h3>
-                    <span>2.6%</span>
+                    <span>{{coin.percent_change_24h.value}}%</span>
+                    <h3>
+                      Percent Change 7d
+                    </h3>
+                    <span>{{coin.percent_change_7d.value}}%</span>
                     <h3>
                       24hr volume
                     </h3>
@@ -44,7 +48,7 @@
                     <h3>
                       Market cap
                     </h3>
-                    <span>$16,105,058,712</span>
+                    <span>{{coin.market_cap.value}}</span>
                   </div>
                   <div class="ui ten wide column">
                     <div class="right floated coin_card">

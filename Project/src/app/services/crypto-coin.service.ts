@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { GetCryptoCoinsResult } from '../models/crypto-coin';
+import { GetCryptoCoinsResult } from '../models/crypto-coin-model';
 import { DataGeneratorService } from './data-generator.service';
 
 @Injectable({

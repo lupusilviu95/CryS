@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { of } from 'rxjs';
 import { first, flatMap } from 'rxjs/operators';
-import { CryptoCoinModel } from '../../../models/crypto-coin';
+import { CryptoCoinModel } from '../../../models/crypto-coin-model';
 import { CryptoCoinService } from '../../../services/crypto-coin.service';
 
 @Component({
