@@ -1,3 +1,4 @@
+import { toNumbers } from '@angular/compiler-cli/src/diagnostics/typescript_version';
 import { Builder } from 'builder-pattern';
 import { CryptoCoinModel } from './crypto-coin-model';
 

@@ -5,6 +5,7 @@ import { of } from 'rxjs';
 import { flatMap } from 'rxjs/operators';
 import { SimpleCoinModel } from '../../../models/simple-coin-model';
 import { CryptoCoinService } from '../../../services/crypto-coin.service';
+import { PriceChangePipeMode } from "../../../pipes/price-change-pipe-mode.enum";
 
 @Component({
   selector: 'app-crypto-coin-list',
@@ -15,9 +16,11 @@ export class CryptoCoinListComponent implements OnInit {
   constructor(private cryptoCoinService: CryptoCoinService) {
   }
 
+  pipeModeIcon = PriceChangePipeMode.ICON;
+
   coins: Array<SimpleCoinModel> = new Array<SimpleCoinModel>();
 
-  displayedColumns: string[] = ['position', 'name', 'price', 'symbol'];
+  displayedColumns: string[] = ['position', 'name', 'symbol', 'marketCap', 'price', 'circulatingSupply', 'percent_change_24h'];
   dataSource;
 
   @ViewChild(MatSort, {static: true}) sort: MatSort;

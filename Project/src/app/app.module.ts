@@ -12,6 +12,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -28,7 +29,7 @@ import { ScholarlyHtmlComponent } from './components/project-info/scholarly-html
 import { FooterComponent } from './components/site-frame/footer/footer.component';
 import { HeaderComponent } from './components/site-frame/header/header.component';
 import { MenuComponent } from './components/site-frame/menu/menu.component';
-import {MatSortModule} from "@angular/material/sort";
+import { PriceChangePipe } from './pipes/price-change-color.pipe';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import {MatSortModule} from "@angular/material/sort";
     ViewCoinComponent,
     ProjectInfoComponent,
     ScholarlyHtmlComponent,
-    BlogComponent
+    BlogComponent,
+    PriceChangePipe
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-<div class="ui padded grid">
+<div class="ui padded grid" xmlns:background="http://www.w3.org/1999/xhtml">
   <div class="column">
     <div class="ui container">
       <mat-toolbar>Cryptocurrencies</mat-toolbar>
@@ -14,13 +14,14 @@
         <!-- Name Column -->
         <ng-container matColumnDef="name">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-          <td mat-cell *matCellDef="let coin"> {{coin.name}} </td>
-        </ng-container>
-
-        <!-- Price Column -->
-        <ng-container matColumnDef="price">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
-          <td mat-cell *matCellDef="let coin"> {{coin.symbol}} </td>
+          <td mat-cell *matCellDef="let coin" >
+            <div class="item">
+              <a class="ui mini image" style="margin: 1em 1em 1em 0em">
+              <img src= {{coin.logo}}>
+              </a>
+              {{coin.name}}
+            </div>
+          </td>
         </ng-container>
 
         <!-- Symbol Column -->
@@ -29,6 +30,36 @@
           <td mat-cell *matCellDef="let coin"> {{coin.symbol}} </td>
         </ng-container>
 
+        <!-- Market Cap Column -->
+        <ng-container matColumnDef="marketCap">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Market Cap </th>
+          <td mat-cell *matCellDef="let coin"> ${{coin.marketCap | number}} </td>
+        </ng-container>
+
+        <!-- Price Column -->
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
+          <td mat-cell *matCellDef="let coin"> ${{coin.price | number}} </td>
+        </ng-container>
+
+        <!-- Circulating Supply Column -->
+        <ng-container matColumnDef="circulatingSupply">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Circulating Supply </th>
+          <td mat-cell *matCellDef="let coin"> {{coin.circulatingSupply | number}} {{coin.symbol}}</td>
+        </ng-container>
+
+          <!-- Change 24h Column -->
+        <ng-container matColumnDef="percent_change_24h">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Change (24h) </th>
+          <td mat-cell *matCellDef="let coin">
+            <div class="header"
+                 [ngStyle]="{'color': coin.percentChange24h | appPriceChange}">
+              <i class="{{coin.percentChange24h | appPriceChange:pipeModeIcon}} icon"></i>
+              {{coin.percentChange24h}}
+            </div>
+          </td>
+        </ng-container>
+        
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
