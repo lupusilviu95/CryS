@@ -33,6 +33,8 @@ import { MenuComponent } from './components/site-frame/menu/menu.component';
 import { PriceChangePipe } from './pipes/price-change-color.pipe';
 import { TransactionHashPipe } from './pipes/transaction-hash.pipe';
 import { WalletAddressPipe } from './pipes/wallet-address.pipe';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { TimeElapsedPipe } from './pipes/time-elapsed.pipe';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,8 @@ import { WalletAddressPipe } from './pipes/wallet-address.pipe';
     BlogComponent,
     PriceChangePipe,
     WalletAddressPipe,
-    TransactionHashPipe
+    TransactionHashPipe,
+    TimeElapsedPipe
   ],
   imports: [
     BrowserModule,
@@ -70,7 +73,8 @@ import { WalletAddressPipe } from './pipes/wallet-address.pipe';
     FormsModule,
     HttpClientModule,
     MatSortModule,
-    MatRippleModule
+    MatRippleModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,3 +1,33 @@
 td {
   color: #282828;
 }
+
+.ui.table td {
+  padding-bottom: 0 !important;
+  padding-top: 0 !important;
+  border-bottom: 0 !important;
+  border-radius: 1px !important;
+}
+
+tr.detail-row {
+  height: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+}
+.ui.horizontal.list {
+  padding-top: 6px !important;
+  padding-bottom: 6px !important;
+}
+
+.ui.horizontal.list>.item {
+  margin-left: 0 !important;
+  margin-right: 1em !important;
+}
+
+.element-row:not(.expanded) {
+  cursor: pointer;
+}
+
+.element-detail {
+  overflow: hidden;
+}
