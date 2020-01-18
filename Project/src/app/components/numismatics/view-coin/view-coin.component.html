@@ -1,86 +1,45 @@
-<div class="ui container">
-  <div class="ui padded grid">
-    <div class="ui inverted column">
-      <div class="ui container">
-        <mat-toolbar (click)="goBack()" style="cursor: pointer">
-          <i class="big white angle left icon"></i>
-          <div class="content">
-            Cryptocurrencies
-          </div>
-        </mat-toolbar>
-      </div>
-      <ng-container *ngIf="coin">
-        <div class="ui container">
-          <div class="ui segment">
-            <div class="ui very relaxed divided list">
-              <div class="item">
-                <div class="ui padded items">
-                  <div class="item">
-                    <div class="ui tiny image">
-                      <img src="{{coin.logo.value}}" alt="{{coin.name.value}} logo">
-                    </div>
-                    <div class="content">
-                      <h1 class="header">{{coin.name.value}}</h1>
-                      <div class="description">({{coin.symbol.value}})</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="ui container">
-                  <div class="ui centered two column grid">
-                    <div class="ui five wide column">
-                      <h3>
-                        Current price
-                      </h3>
-                      <span>{{coin.price.value}}</span>
-                      <h3>
-                        Percent Change 24h
-                      </h3>
-                      <span>{{coin.percent_change_24h.value}}%</span>
-                      <h3>
-                        Percent Change 7d
-                      </h3>
-                      <span>{{coin.percent_change_7d.value}}%</span>
-                      <h3>
-                        24hr volume
-                      </h3>
-                      <span>$7,543,173,721</span>
-                      <h3>
-                        Market cap
-                      </h3>
-                      <span>{{coin.market_cap.value}}</span>
-                    </div>
-                    <div class="ui ten wide column">
-                      <div class="right floated coin_card">
-                        <h3> What is Bitcoin?</h3>
-                        <p class="coin_card_text"><b>Bitcoin</b> is the first decentralised digital currency. They are
-                          digital coins that you can use on the internet to transact with or to use as a store of value.
-                          As Bitcoin is a peer-to-peer network, transactions take place between users directly without a
-                          third party that verifies the transaction.
-                          <br><br>
-                          The invention that makes this possible is the so-called Blockchain. The thousands of blockchain
-                          nodes verify the bitcoin transactions that happen between two parties, and for doing so, the
-                          nodes (also called miners) receive a reward in the form of newly created bitcoin and a
-                          transaction fee.
-                          <br><br>
-                          The inventor of the Bitcoin protocol goes by the nickname Satoshi Nakamoto and until today it’s
-                          still unknown who exactly this person (or group of people) is.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="ui center aligned container">
-                  <h2> Predicted evolution for the next 7 days</h2>
-                  <img src="assets/bitcoin_evolution.png">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </ng-container>
+<div class="ui padded grid" xmlns:background="http://www.w3.org/1999/xhtml">
+  <div class="column">
+    <div class="ui container">
+      <mat-toolbar>Cryptocurrencies</mat-toolbar>
     </div>
-  </div>
-</div>
+    <div class="ui container">
+      <table mat-table
+             [dataSource]="dataSource" multiTemplateDataRows
+             class="mat-elevation-z8">
+        <ng-container matColumnDef="{{column}}" *ngFor="let column of displayedColumns">
+          <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+          <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+        </ng-container>
+
+        <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+        <ng-container matColumnDef="expandedDetail">
+          <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
+            <div class="example-element-detail"
+                 [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+              <div class="example-element-diagram">
+                <div class="example-element-description"> {{element.description}} </div>
+                <div class="example-element-date"> {{element.createDate | date : 'MMM dd HH:mm:ss'}} </div>
+
+                <div class="example-element-url"> CryptoPanic: {{element.url}} </div>
+                <div class="example-element-description">
+                  <span class="example-element-description-attribution"> -- {{element.source}} </span>
+                </div>
+              </div>
+
+            </div>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let element; columns: displayedColumns;"
+            class="example-element-row"
+            [class.example-expanded-row]="expandedElement === element"
+            (click)="expandedElement = expandedElement === element ? null : element">
+        </tr>
+        <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+      </table>
+      </div>
+      </div>
+      </div>
+
