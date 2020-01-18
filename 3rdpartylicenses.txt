@@ -116,9 +116,15 @@ THE SOFTWARE.
 
 @angular/material/expansion
 
+@angular/material/form-field
+
 @angular/material/icon
 
 @angular/material/list
+
+@angular/material/paginator
+
+@angular/material/select
 
 @angular/material/sidenav
 
@@ -127,6 +133,8 @@ THE SOFTWARE.
 @angular/material/table
 
 @angular/material/toolbar
+
+@angular/material/tooltip
 
 @angular/platform-browser
 MIT
