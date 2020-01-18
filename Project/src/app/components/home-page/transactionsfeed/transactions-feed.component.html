@@ -1,0 +1,76 @@
+<div class="ui container">
+  <mat-toolbar>Transactions</mat-toolbar>
+</div>
+<!--<div class="ui container">-->
+<!--  <div class="ui segment">-->
+<!--    <div class="ui container">-->
+<!--      <table class="ui single line very basic small compact table">-->
+<!--        <thead>-->
+<!--          <tr>-->
+<!--            <th class="one wide">Hash</th>-->
+<!--            <th class="one wide">Date traded</th>-->
+<!--            <th class="one wide">Amount (USD)</th>-->
+<!--          </tr>-->
+<!--        </thead>-->
+<!--        <tbody>-->
+<!--          <tr *ngFor="let transaction of transactions">-->
+<!--            <td><a href="#"> {{ transaction.hash | transactionHash }} </a></td>-->
+<!--            <td> {{ transaction.dateTraded | date }} </td>-->
+<!--            <td> ${{ transaction.amountUsd | number }} </td>-->
+<!--&lt;!&ndash;            <mat-expansion-panel *ngFor="let transaction of transactions">&ndash;&gt;-->
+<!--&lt;!&ndash;              <mat-expansion-panel-header>&ndash;&gt;-->
+<!--&lt;!&ndash;                <td><a href="#"> {{ transaction.hash | transactionHash }} </a></td>&ndash;&gt;-->
+<!--&lt;!&ndash;                <td> {{ transaction.dateTraded | date }} </td>&ndash;&gt;-->
+<!--&lt;!&ndash;                <td> ${{ transaction.amountUsd | number }} </td>&ndash;&gt;-->
+<!--&lt;!&ndash;              </mat-expansion-panel-header>&ndash;&gt;-->
+
+<!--&lt;!&ndash;              <p>This is the primary content of the panel.</p>&ndash;&gt;-->
+
+<!--&lt;!&ndash;              <mat-action-row>&ndash;&gt;-->
+<!--&lt;!&ndash;                <button mat-button>Click me</button>&ndash;&gt;-->
+<!--&lt;!&ndash;              </mat-action-row>&ndash;&gt;-->
+<!--&lt;!&ndash;            </mat-expansion-panel>&ndash;&gt;-->
+<!--          </tr>-->
+<!--        </tbody>-->
+<!--      </table>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<div class="ui container">
+<!--  <div class="ui segment">-->
+    <table mat-table [dataSource]="dataSource" matSort class="ui center aligned selectable fixed table">
+      <!-- Hash Column -->
+      <ng-container matColumnDef="hash">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header > Hash </th>
+        <td mat-cell *matCellDef="let transaction">
+          <a href="https://www.blockchain.com/btc/block/{{transaction.hash}}">
+            {{transaction.hash | transactionHash}}
+          </a>
+        </td>
+      </ng-container>
+
+      <!-- Amount Column -->
+      <ng-container matColumnDef="amountUsd">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Amount (USD) </th>
+        <td mat-cell *matCellDef="let transaction"> ${{transaction.amountUsd | number}} </td>
+      </ng-container>
+
+      <!-- Price Column -->
+      <ng-container matColumnDef="sender">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Sender </th>
+        <td mat-cell *matCellDef="let transaction"> {{transaction.sender | walletAddress}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="receiver">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Receiver </th>
+        <td mat-cell *matCellDef="let transaction"> {{transaction.receiver| walletAddress}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns" class="center aligned"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="center aligned"></tr>
+
+    </table>
+<!--  </div>-->
+</div>

@@ -7,6 +7,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatRippleModule } from '@angular/material/core';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
@@ -20,7 +21,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home-page/home/home.component';
 import { NewsfeedComponent } from './components/home-page/newsfeed/newsfeed.component';
-import { TransactionsfeedComponent } from './components/home-page/transactionsfeed/transactionsfeed.component';
+import { TransactionsFeedComponent } from './components/home-page/transactionsfeed/transactions-feed.component';
 import { CryptoCoinListComponent } from './components/numismatics/crypto-coin-list/crypto-coin-list.component';
 import { ViewCoinComponent } from './components/numismatics/view-coin/view-coin.component';
 import { BlogComponent } from './components/project-info/blog/blog.component';
@@ -30,6 +31,8 @@ import { FooterComponent } from './components/site-frame/footer/footer.component
 import { HeaderComponent } from './components/site-frame/header/header.component';
 import { MenuComponent } from './components/site-frame/menu/menu.component';
 import { PriceChangePipe } from './pipes/price-change-color.pipe';
+import { TransactionHashPipe } from './pipes/transaction-hash.pipe';
+import { WalletAddressPipe } from './pipes/wallet-address.pipe';
 
 @NgModule({
   declarations: [
@@ -39,13 +42,15 @@ import { PriceChangePipe } from './pipes/price-change-color.pipe';
     FooterComponent,
     MenuComponent,
     NewsfeedComponent,
-    TransactionsfeedComponent,
+    TransactionsFeedComponent,
     CryptoCoinListComponent,
     ViewCoinComponent,
     ProjectInfoComponent,
     ScholarlyHtmlComponent,
     BlogComponent,
-    PriceChangePipe
+    PriceChangePipe,
+    WalletAddressPipe,
+    TransactionHashPipe
   ],
   imports: [
     BrowserModule,
@@ -64,7 +69,8 @@ import { PriceChangePipe } from './pipes/price-change-color.pipe';
     MatExpansionModule,
     FormsModule,
     HttpClientModule,
-    MatSortModule
+    MatSortModule,
+    MatRippleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

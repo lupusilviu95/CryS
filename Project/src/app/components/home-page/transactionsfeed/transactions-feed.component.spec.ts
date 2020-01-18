@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TransactionsfeedComponent } from './transactionsfeed.component';
+import { TransactionsFeedComponent } from './transactions-feed.component';
 
 describe('TransactionsfeedComponent', () => {
-  let component: TransactionsfeedComponent;
-  let fixture: ComponentFixture<TransactionsfeedComponent>;
+  let component: TransactionsFeedComponent;
+  let fixture: ComponentFixture<TransactionsFeedComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TransactionsfeedComponent ]
+      declarations: [ TransactionsFeedComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TransactionsfeedComponent);
+    fixture = TestBed.createComponent(TransactionsFeedComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
