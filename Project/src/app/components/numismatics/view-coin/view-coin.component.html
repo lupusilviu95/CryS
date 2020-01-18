@@ -9,76 +9,78 @@
           </div>
         </mat-toolbar>
       </div>
-      <div class="ui container">
-        <div class="ui segment">
-          <div class="ui very relaxed divided list">
-            <div class="item">
-              <div class="ui padded items">
-                <div class="item">
-                  <div class="ui tiny image">
-                    <img src="{{coin.logo.value}}" alt="{{coin.name.value}} logo">
-                  </div>
-                  <div class="content">
-                    <h1 class="header">{{coin.name.value}}</h1>
-                    <div class="description">({{coin.symbol.value}})</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="ui container">
-                <div class="ui centered two column grid">
-                  <div class="ui five wide column">
-                    <h3>
-                      Current price
-                    </h3>
-                    <span>{{coin.price.value}}</span>
-                    <h3>
-                      Percent Change 24h
-                    </h3>
-                    <span>{{coin.percent_change_24h.value}}%</span>
-                    <h3>
-                      Percent Change 7d
-                    </h3>
-                    <span>{{coin.percent_change_7d.value}}%</span>
-                    <h3>
-                      24hr volume
-                    </h3>
-                    <span>$7,543,173,721</span>
-                    <h3>
-                      Market cap
-                    </h3>
-                    <span>{{coin.market_cap.value}}</span>
-                  </div>
-                  <div class="ui ten wide column">
-                    <div class="right floated coin_card">
-                      <h3> What is Bitcoin?</h3>
-                      <p class="coin_card_text"><b>Bitcoin</b> is the first decentralised digital currency. They are
-                        digital coins that you can use on the internet to transact with or to use as a store of value.
-                        As Bitcoin is a peer-to-peer network, transactions take place between users directly without a
-                        third party that verifies the transaction.
-                        <br><br>
-                        The invention that makes this possible is the so-called Blockchain. The thousands of blockchain
-                        nodes verify the bitcoin transactions that happen between two parties, and for doing so, the
-                        nodes (also called miners) receive a reward in the form of newly created bitcoin and a
-                        transaction fee.
-                        <br><br>
-                        The inventor of the Bitcoin protocol goes by the nickname Satoshi Nakamoto and until today it’s
-                        still unknown who exactly this person (or group of people) is.</p>
+      <ng-container *ngIf="coin">
+        <div class="ui container">
+          <div class="ui segment">
+            <div class="ui very relaxed divided list">
+              <div class="item">
+                <div class="ui padded items">
+                  <div class="item">
+                    <div class="ui tiny image">
+                      <img src="{{coin.logo.value}}" alt="{{coin.name.value}} logo">
+                    </div>
+                    <div class="content">
+                      <h1 class="header">{{coin.name.value}}</h1>
+                      <div class="description">({{coin.symbol.value}})</div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="item">
-              <div class="ui center aligned container">
-                <h2> Predicted evolution for the next 7 days</h2>
-                <img src="assets/bitcoin_evolution.png">
+              <div class="item">
+                <div class="ui container">
+                  <div class="ui centered two column grid">
+                    <div class="ui five wide column">
+                      <h3>
+                        Current price
+                      </h3>
+                      <span>{{coin.price.value}}</span>
+                      <h3>
+                        Percent Change 24h
+                      </h3>
+                      <span>{{coin.percent_change_24h.value}}%</span>
+                      <h3>
+                        Percent Change 7d
+                      </h3>
+                      <span>{{coin.percent_change_7d.value}}%</span>
+                      <h3>
+                        24hr volume
+                      </h3>
+                      <span>$7,543,173,721</span>
+                      <h3>
+                        Market cap
+                      </h3>
+                      <span>{{coin.market_cap.value}}</span>
+                    </div>
+                    <div class="ui ten wide column">
+                      <div class="right floated coin_card">
+                        <h3> What is Bitcoin?</h3>
+                        <p class="coin_card_text"><b>Bitcoin</b> is the first decentralised digital currency. They are
+                          digital coins that you can use on the internet to transact with or to use as a store of value.
+                          As Bitcoin is a peer-to-peer network, transactions take place between users directly without a
+                          third party that verifies the transaction.
+                          <br><br>
+                          The invention that makes this possible is the so-called Blockchain. The thousands of blockchain
+                          nodes verify the bitcoin transactions that happen between two parties, and for doing so, the
+                          nodes (also called miners) receive a reward in the form of newly created bitcoin and a
+                          transaction fee.
+                          <br><br>
+                          The inventor of the Bitcoin protocol goes by the nickname Satoshi Nakamoto and until today it’s
+                          still unknown who exactly this person (or group of people) is.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="ui center aligned container">
+                  <h2> Predicted evolution for the next 7 days</h2>
+                  <img src="assets/bitcoin_evolution.png">
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </ng-container>
     </div>
   </div>
 </div>
