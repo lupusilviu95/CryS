@@ -1,50 +1,38 @@
-<!--<div class="ui padded grid">-->
-<!--  <div class="column">-->
-<!--    <div class="ui container">-->
-<!--      <mat-toolbar>Cryptocurrencies</mat-toolbar>-->
-<!--    </div>-->
-<!--    <div class="ui container">-->
-<!--      <div class="ui padded segment">-->
-<!--        <div class="ui very relaxed divided list">-->
-<!--          <div class="item" *ngFor="let element of elements">-->
-<!--            <img class="ui tiny image" src="assets/icons/{{'ethereum-2-256.png'}}" routerLink="{{element.name}}" style="cursor: pointer">-->
-<!--            <div class="content">-->
-<!--              <a href="numismatics/{{element.id.value}}" class="header"> {{ element.name.value }} </a>-->
-<!--              <div class="description"> {{ element.description.value }} </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+<div class="ui padded grid">
+  <div class="column">
+    <div class="ui container">
+      <mat-toolbar>Cryptocurrencies</mat-toolbar>
+    </div>
+    <div class="ui container">
+      <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+          <td mat-cell *matCellDef="let coin"> {{coin.cmcRank}} </td>
+        </ng-container>
 
-  <!-- Position Column -->
-  <ng-container matColumnDef="position">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
-    <td mat-cell *matCellDef="let element"> {{element.cmcRank}} </td>
-  </ng-container>
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+          <td mat-cell *matCellDef="let coin"> {{coin.name}} </td>
+        </ng-container>
 
-  <!-- Name Column -->
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-  </ng-container>
+        <!-- Price Column -->
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
+          <td mat-cell *matCellDef="let coin"> {{coin.symbol}} </td>
+        </ng-container>
 
-  <!-- Price Column -->
-  <ng-container matColumnDef="price">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
-    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-  </ng-container>
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="symbol">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Symbol </th>
+          <td mat-cell *matCellDef="let coin"> {{coin.symbol}} </td>
+        </ng-container>
 
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="symbol">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Symbol </th>
-    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
-<!--</div>-->
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  </div>
+</div>
 

@@ -29,11 +29,10 @@ export class CryptoCoinListComponent implements OnInit {
           this.coins.push(SimpleCoinModel.from(coinModel));
         });
         this.dataSource = new MatTableDataSource(this.coins);
+        this.dataSource.sort = this.sort;
         return of([]);
       })
     ).subscribe();
-
-    // this.dataSource.sort = this.sort;
   }
 
 }
