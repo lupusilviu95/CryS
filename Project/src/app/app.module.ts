@@ -28,6 +28,7 @@ import { ScholarlyHtmlComponent } from './components/project-info/scholarly-html
 import { FooterComponent } from './components/site-frame/footer/footer.component';
 import { HeaderComponent } from './components/site-frame/header/header.component';
 import { MenuComponent } from './components/site-frame/menu/menu.component';
+import {MatSortModule} from "@angular/material/sort";
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { MenuComponent } from './components/site-frame/menu/menu.component';
     MatTableModule,
     MatExpansionModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]
