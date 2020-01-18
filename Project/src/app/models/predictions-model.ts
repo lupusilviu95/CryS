@@ -7,6 +7,14 @@ export interface GetPredictionsResult {
   };
 }
 
+export interface PredictionModel {
+  symbol: PredictionSymbol;
+  predicted_price: PredictedPrice;
+  generated_at: GeneratedAt;
+  prediction: Prediction;
+  predicted_date: PredictedDate;
+}
+
 export interface PredictionSymbol {
   type: string;
   value: string;
@@ -34,14 +42,3 @@ export interface PredictedDate {
   type: string;
   value: string;
 }
-
-export interface PredictionModel {
-  symbol: PredictionSymbol;
-  predicted_price: PredictedPrice;
-  generated_at: GeneratedAt;
-  prediction: Prediction;
-  predicted_date: PredictedDate;
-}
-
-
-
