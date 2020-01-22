@@ -34,7 +34,7 @@ export class ViewCoinComponent implements OnInit {
 
   coin: CryptoCoinModel;
   news: Array<SimpleNewsModel> = new Array<SimpleNewsModel>();
-  displayedColumns: string[] = ['title'];
+  displayedColumns: string[] = ['Title'];
   dataSource;
   expandedElement: NewsModel | null;
 
@@ -51,7 +51,7 @@ export class ViewCoinComponent implements OnInit {
       }),
       flatMap((newsResult: GetNewsResult) => {
         newsResult.results.bindings.forEach(newsModel => {
-          if (newsModel.about.value.length > 0 && newsModel.news.value.length > 0) {
+          if (newsModel.description.value.length > 0 && newsModel.news.value.length > 0) {
             console.log('about: ' + newsModel.about.value);
             this.news.push(SimpleNewsModel.from(newsModel));
           }

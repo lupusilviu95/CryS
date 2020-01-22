@@ -1,3 +1,7 @@
+td {
+  color: #282828;
+}
+
 h3, h2, span, p {
   color: rgba(39, 37, 40, 0.92) !important;
   font-size: medium;
@@ -7,8 +11,19 @@ table {
   width: 100%;
 }
 
+
+.ui.table td {
+  padding-bottom: 0 !important;
+  padding-top: 0 !important;
+  border-bottom: 0 !important;
+  border-radius: 1px !important;
+}
+
 tr.example-detail-row {
-  height: 0;
+  //height: 0;
+  height: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
 }
 
 tr.example-element-row:not(.example-expanded-row):hover {
@@ -17,7 +32,7 @@ tr.example-element-row:not(.example-expanded-row):hover {
 }
 
 tr.example-element-row:not(.example-expanded-row):active {
-  background: #efefef;
+  background: #ef3d5d;
 }
 
 .example-element-row td {
@@ -31,11 +46,12 @@ tr.example-element-row:not(.example-expanded-row):active {
 
 .example-element-diagram {
   min-width: 80px;
-  border-radius: 25px;
-  border: 2px solid black;
-  padding: 8px;
-  font-weight: lighter;
+  border-radius: 5px;
+  box-shadow: #9E9E9E;
+  border: 1px solid #b1d8dc;
+  padding: 0 8px;
   margin: 8px 0;
+  background: aliceblue;
 }
 
 .example-element-symbol {
@@ -48,6 +64,15 @@ tr.example-element-row:not(.example-expanded-row):active {
   padding: 16px;
 }
 
-.example-element-description-attribution {
+.example-element-date {
+  padding: 0 12px;
+  font-style: italic;
+}
 
+.example-element-url {
+  padding: 0 12px;
+  color: #2196f3;
+}
+.example-element-source {
+  float:right;
 }
