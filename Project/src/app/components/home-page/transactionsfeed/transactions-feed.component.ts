@@ -23,7 +23,6 @@ import { TransactionsService } from '../../../services/transactions.service';
 })
 export class TransactionsFeedComponent implements OnInit {
   @Input() coinSymbol: string;
-  @Input() showPaginator: true;
   @Input() pageSizeOptions = [25, 50];
 
   dataSource;

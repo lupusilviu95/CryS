@@ -44,8 +44,4 @@ export class ViewCoinComponent implements OnInit {
       })
     ).subscribe();
   }
-
-  // goBack() {
-  //   this.location.back();
-  // }
 }

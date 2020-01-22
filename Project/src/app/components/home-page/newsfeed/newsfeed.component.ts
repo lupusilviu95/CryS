@@ -22,7 +22,6 @@ import { NewsService } from '../../../services/news.service';
 })
 export class NewsfeedComponent implements OnInit {
   @Input() coinSymbol: string;
-  @Input() showPaginator: true;
   @Input() pageSizeOptions = [25, 50];
 
   dataSource;
