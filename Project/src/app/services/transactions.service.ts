@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { GetTransactionsResponse } from '../models/transactions-model';
@@ -14,6 +14,12 @@ export class TransactionsService {
 
   public getTransactions(): Observable<GetTransactionsResponse> {
     return this.http.get<GetTransactionsResponse>(TransactionsService.API_URL);
+  }
+
+  public getTransactionsForCoin(symbol: string): Observable<GetTransactionsResponse> {
+    const params = new HttpParams()
+      .set('symbol', symbol);
+    return this.http.get<GetTransactionsResponse>(TransactionsService.API_URL, {params});
   }
 
 }

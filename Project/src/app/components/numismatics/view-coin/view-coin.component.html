@@ -1,54 +1,6 @@
 <div class="ui padded grid" xmlns:background="http://www.w3.org/1999/xhtml">
   <div class="column">
-    <div class="ui container">
-      <mat-toolbar>News</mat-toolbar>
-    </div>
-    <div class="ui container">
-      <table mat-table [dataSource]="dataSource"
-             matSort
-             multiTemplateDataRows
-             class="ui selectable table">
-
-        <ng-container matColumnDef="{{column}}" *ngFor="let column of displayedColumns">
-          <th mat-header-cell *matHeaderCellDef> {{column}} </th>
-          <td mat-cell *matCellDef="let element"> {{element[column]}}
-            <div class="ui item">
-              <div class="header">
-                <a>{{element.title | transactionHash}}</a>
-              </div>
-            </div>
-          </td>
-
-        </ng-container>
-
-        <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
-        <ng-container matColumnDef="expandedDetail">
-          <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
-            <div class="example-element-detail"
-                 [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
-              <div class="example-element-diagram">
-                <div class="example-element-description"> {{element.description}} </div>
-                <div class="example-element-url">
-                  <a href="{{element.url}}">{{element.url}}</a>
-                </div>
-                <div class="example-element-date">Date: {{element.createDate | date : 'MMM dd HH:mm:ss'}} </div>
-                <div class="example-element-description">
-                  <span class="example-element-source"> -- {{element.source}} </span>
-                </div>
-              </div>
-            </div>
-          </td>
-        </ng-container>
-
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let element; columns: displayedColumns;"
-            class="example-element-row"
-            [class.example-expanded-row]="expandedElement === element"
-            (click)="expandedElement = expandedElement === element ? null : element">
-        </tr>
-        <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
-      </table>
-      </div>
-      </div>
-      </div>
-
+      <app-newsfeed coinSymbol="{{coin.symbol}}" [pageSizeOptions]="[10, 20]" *ngIf="this.coin"></app-newsfeed>
+      <app-transactionsfeed coinSymbol="{{coin.symbol}}" [pageSizeOptions]="[10, 20]" *ngIf="this.coin"></app-transactionsfeed>
+  </div>
+</div>
