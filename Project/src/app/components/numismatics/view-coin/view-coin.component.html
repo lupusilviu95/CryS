@@ -13,6 +13,12 @@
               {{coin.name}}
               <div class="sub header">
                 <span style="color:lightslategray">({{coin.symbol}})</span>
+                <a class="ui green mini label" *ngIf="coin.status && coin.status==='active'">
+                  {{coin.status}}
+                </a>
+                <a class="ui mini label" *ngIf="coin.status && coin.status==='inactive'">
+                  {{coin.status}}
+                </a>
               </div>
             </div>
           </h1>
@@ -48,14 +54,23 @@
                 <div class="item">
                   <i class="text file outline icon"></i>
                   <div class="content">
-                    <a href="http://www.semantic-ui.com">Technical Document</a>
+                    <a href="{{coin.technicalDoc}}">Technical Document</a>
+                  </div>
+                </div>
+                <div class="item" *ngIf="coin.reddit">
+                  <i class="globe icon"></i>
+                  <div class="content">
+                    <a class="ui small basic label" href="{{coin.reddit}}" *ngIf="coin.reddit">
+                      <i class="red reddit icon"></i>
+                      Reddit
+                    </a>
                   </div>
                 </div>
                 <div class="item">
                   <i class="tag icon"></i>
                   <div class="content">
-                    <div class="ui gray horizontal label">Coin</div>
-                    <div class="ui gray horizontal label">Mineable</div>
+                    <div class="ui gray small horizontal label">Coin</div>
+                    <div class="ui gray small horizontal label" *ngIf="coin.mineable">Mineable</div>
                   </div>
                 </div>
               </div>

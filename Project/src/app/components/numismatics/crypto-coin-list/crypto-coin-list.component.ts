@@ -23,7 +23,7 @@ export class CryptoCoinListComponent implements OnInit {
 
   coins: Array<SimpleCoinModel> = new Array<SimpleCoinModel>();
 
-  displayedColumns: string[] = ['position', 'name', 'symbol', 'marketCap', 'price', 'circulatingSupply', 'percent_change_24h'];
+  displayedColumns: string[] = ['cmcRank', 'name', 'symbol', 'marketCap', 'price', 'circulatingSupply', 'percent_change_24h'];
   dataSource;
 
   @ViewChild(MatSort, {static: true}) sort: MatSort;

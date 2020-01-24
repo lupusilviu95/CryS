@@ -6,7 +6,7 @@
     <div class="ui container">
       <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
         <!-- Position Column -->
-        <ng-container matColumnDef="position">
+        <ng-container matColumnDef="cmcRank">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
           <td mat-cell *matCellDef="let coin"> {{coin.cmcRank}} </td>
         </ng-container>
