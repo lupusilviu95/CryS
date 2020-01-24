@@ -59,7 +59,6 @@ export class TransactionsFeedComponent implements OnInit {
     this.dataSource = new MatTableDataSource(this.transactions);
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
-    console.log(this.dataSource);
   }
 
 }

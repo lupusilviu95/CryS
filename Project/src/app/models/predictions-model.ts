@@ -1,4 +1,4 @@
-export interface GetPredictionsResult {
+export interface GetPredictionsResponse {
   head: {
     vars: string[];
   };

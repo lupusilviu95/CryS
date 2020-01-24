@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { GetPredictionsResult } from '../models/predictions-model';
+import { GetPredictionsResponse } from '../models/predictions-model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,14 +12,16 @@ export class PredictionsService {
   constructor(private http: HttpClient) {
   }
 
-  public getPredictions(): Observable<GetPredictionsResult> {
-    return this.http.get<GetPredictionsResult>(`${PredictionsService.API_URL}/`);
+  public getPredictions(): Observable<GetPredictionsResponse> {
+    return this.http.get<GetPredictionsResponse>(`${PredictionsService.API_URL}/`);
   }
 
-  public getPrediction(symbol: string, limit: number = 7): Observable<GetPredictionsResult> {
+  public getPrediction(symbol: string, period: number = 7): Observable<GetPredictionsResponse> {
     const params = new HttpParams()
-      .set('symbol', symbol)
-      .set('limit', `${limit}`);
-    return this.http.get<GetPredictionsResult>(PredictionsService.API_URL, {params});
+      .set('symbol', symbol);
+    if (period !== 0) {
+      params.set('period', `${period}`);
+    }
+    return this.http.get<GetPredictionsResponse>(PredictionsService.API_URL, {params});
   }
 }

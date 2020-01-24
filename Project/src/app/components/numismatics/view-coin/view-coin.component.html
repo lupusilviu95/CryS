@@ -5,7 +5,7 @@
         <mat-toolbar>Details</mat-toolbar>
       </div>
       <div class="ui container">
-        <div class="ui very padded segment">
+        <div class="ui very padded segment" *ngIf="this.coin">
 
           <h1 class="ui header">
             <img class="ui image" src="{{coin.logo}}" alt="{{coin.name}}">
@@ -122,15 +122,24 @@
             <div class="ui hidden divider"></div>
             <div class="sixteen wide column">
               <div class="ui stackable grid">
-                <div class="eight wide column">
+                <div class="eight wide column" *ngIf="pricesHistoryData">
                   <h2 class="ui header">Price History</h2>
-                  <app-line-chart [view]="[500, 350]"></app-line-chart>
+                  <app-line-chart
+                    [view]="[500, 350]"
+                    [graphData]="pricesHistoryData"
+                    [showYAxisLabel]="true"
+                    [yAxisLabel]="'USD'">
+                  </app-line-chart>
                 </div>
-                <div class="eight wide column">
+                <div class="eight wide column" *ngIf="predictionsData">
                   <h2 class="ui header">Prediction</h2>
-                  <app-line-chart [view]="[500, 350]"></app-line-chart>
+                  <app-line-chart
+                    [view]="[500, 350]"
+                    [graphData]="predictionsData"
+                    [showYAxisLabel]="true"
+                    [yAxisLabel]="'USD'">
+                  </app-line-chart>
                 </div>
-
               </div>
 
 

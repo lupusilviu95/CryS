@@ -5,9 +5,17 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { of } from 'rxjs';
 import { first, flatMap } from 'rxjs/operators';
 import { CryptoCoinModel, GetCryptoCoinsResult } from '../../../models/crypto-coin-model';
+import { LineGraphData } from '../../../models/line-graph-data';
+import { GetPricesResponse } from '../../../models/prices-model';
 import { SimpleCoinModel } from '../../../models/simple-coin-model';
 import { SimpleNewsModel } from '../../../models/simple-news-model';
+import { SimplePricesModel } from '../../../models/simple-prices-model';
 import { CryptoCoinService } from '../../../services/crypto-coin.service';
+import { PredictionsService } from '../../../services/predictions.service';
+import { PricesService } from '../../../services/prices.service';
+import { fakeData } from './fake-data';
+import { GetPredictionsResponse } from '../../../models/predictions-model';
+import { SimplePredictionsModel } from '../../../models/simple-predictions-model';
 
 @Component({
   selector: 'app-view-coin',
@@ -25,10 +33,14 @@ export class ViewCoinComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private router: Router,
               private location: Location,
-              private cryptoCoinService: CryptoCoinService) {
+              private cryptoCoinService: CryptoCoinService,
+              private pricesService: PricesService,
+              private predictionsService: PredictionsService) {
   }
 
   coin: SimpleCoinModel;
+  pricesHistoryData: LineGraphData;
+  predictionsData: LineGraphData;
   news: Array<SimpleNewsModel> = new Array<SimpleNewsModel>();
 
   ngOnInit() {
@@ -40,6 +52,14 @@ export class ViewCoinComponent implements OnInit {
       first(),
       flatMap((coin: CryptoCoinModel) => {
         this.coin = SimpleCoinModel.from(coin);
+        return this.pricesService.getPriceHistory(this.coin.symbol, 0);
+      }),
+      flatMap((getPricesResponse: GetPricesResponse) => {
+        this.pricesHistoryData = LineGraphData.fromPrices(SimplePricesModel.from(getPricesResponse));
+        return this.predictionsService.getPrediction(this.coin.symbol, 7);
+      }),
+      flatMap((getPredictionsResponse: GetPredictionsResponse) => {
+        this.predictionsData = LineGraphData.fromPredictions(SimplePredictionsModel.from(getPredictionsResponse));
         return of([]);
       })
     ).subscribe();

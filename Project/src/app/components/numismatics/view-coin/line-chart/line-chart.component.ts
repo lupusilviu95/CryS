@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { LineData, LineGraphData } from '../../../../models/line-graph-data';
 
 @Component({
   selector: 'app-line-chart',
@@ -6,75 +7,9 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./line-chart.component.scss']
 })
 export class LineChartComponent implements OnInit {
-  multi = [
-    {
-      name: 'Germany',
-      series: [
-        {
-          name: '1990',
-          value: 62000000
-        },
-        {
-          name: '2010',
-          value: 73000000
-        },
-        {
-          name: '2011',
-          value: 89400000
-        }
-      ]
-    },
 
-    {
-      name: 'USA',
-      series: [
-        {
-          name: '1990',
-          value: 250000000
-        },
-        {
-          name: '2010',
-          value: 309000000
-        },
-        {
-          name: '2011',
-          value: 311000000
-        }
-      ]
-    },
 
-    {
-      name: 'France',
-      series: [
-        {
-          name: '1990',
-          value: 58000000
-        },
-        {
-          name: '2010',
-          value: 50000020
-        },
-        {
-          name: '2011',
-          value: 58000000
-        }
-      ]
-    },
-    {
-      name: 'UK',
-      series: [
-        {
-          name: '1990',
-          value: 57000000
-        },
-        {
-          name: '2010',
-          value: 62000000
-        }
-      ]
-    }
-  ];
-
+  @Input() graphData: LineGraphData;
   @Input() view: any[] = [700, 300];
   @Input() legend = false;
   @Input() animations = true;
@@ -82,8 +17,8 @@ export class LineChartComponent implements OnInit {
   @Input() yAxis = true;
   @Input() showYAxisLabel = false;
   @Input() showXAxisLabel = false;
-  @Input() xAxisLabel = 'Year';
-  @Input() yAxisLabel = 'Population';
+  @Input() xAxisLabel;
+  @Input() yAxisLabel;
   @Input() timeline = true;
 
   colorScheme = {

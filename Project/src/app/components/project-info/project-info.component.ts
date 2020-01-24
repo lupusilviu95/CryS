@@ -36,7 +36,6 @@ export class ProjectInfoComponent implements OnInit {
 
 
   toggleDiagrams() {
-    console.log(this.showingDiagrams);
     this.showingDiagrams = !this.showingDiagrams;
   }
 
@@ -45,7 +44,6 @@ export class ProjectInfoComponent implements OnInit {
       queryParamsHandling: 'preserve',
       preserveFragment: true
     };
-    console.log(`navigate(${path})`);
     this.router.navigateByUrl(path, navigationExtras);
   }
 }
