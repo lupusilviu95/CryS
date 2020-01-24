@@ -18,10 +18,8 @@ export class PredictionsService {
 
   public getPrediction(symbol: string, period: number = 7): Observable<GetPredictionsResponse> {
     const params = new HttpParams()
-      .set('symbol', symbol);
-    if (period !== 0) {
-      params.set('period', `${period}`);
-    }
+      .set('symbol', symbol)
+      .set('period', `${period}`);
     return this.http.get<GetPredictionsResponse>(PredictionsService.API_URL, {params});
   }
 }
