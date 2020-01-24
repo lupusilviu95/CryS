@@ -1,4 +1,4 @@
-export interface GetPricesResult {
+export interface GetPricesResponse {
   head: {
     vars: string[];
   };

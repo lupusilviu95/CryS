@@ -35,6 +35,8 @@ import { TransactionHashPipe } from './pipes/transaction-hash.pipe';
 import { WalletAddressPipe } from './pipes/wallet-address.pipe';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { TimeElapsedPipe } from './pipes/time-elapsed.pipe';
+import { LineChartComponent } from './components/numismatics/view-coin/line-chart/line-chart.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,8 @@ import { TimeElapsedPipe } from './pipes/time-elapsed.pipe';
     PriceChangePipe,
     WalletAddressPipe,
     TransactionHashPipe,
-    TimeElapsedPipe
+    TimeElapsedPipe,
+    LineChartComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +77,8 @@ import { TimeElapsedPipe } from './pipes/time-elapsed.pipe';
     HttpClientModule,
     MatSortModule,
     MatRippleModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    NgxChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -121,14 +121,18 @@
 
             <div class="ui hidden divider"></div>
             <div class="sixteen wide column">
-              <h2 class="ui header">Price Evolution</h2>
-              <div class="item">
-                <div class="content">
-                  <div class="description">
-                    Graph goes here
-                  </div>
+              <div class="ui stackable grid">
+                <div class="eight wide column">
+                  <h2 class="ui header">Price History</h2>
+                  <app-line-chart [view]="[500, 350]"></app-line-chart>
                 </div>
+                <div class="eight wide column">
+                  <h2 class="ui header">Prediction</h2>
+                  <app-line-chart [view]="[500, 350]"></app-line-chart>
+                </div>
+
               </div>
+
 
           </div>
         </div>

@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { GetPricesResult } from '../models/prices-model';
+import { GetPricesResponse } from '../models/prices-model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,14 +12,14 @@ export class PricesService {
   constructor(private http: HttpClient) {
   }
 
-  public getPrices(): Observable<GetPricesResult> {
-    return this.http.get<GetPricesResult>(PricesService.API_URL);
+  public getPrices(): Observable<GetPricesResponse> {
+    return this.http.get<GetPricesResponse>(PricesService.API_URL);
   }
 
-  public getPriceEvolution(symbol: string, limit: number = 7): Observable<GetPricesResult> {
+  public getPriceHistory(symbol: string, limit: number = 7): Observable<GetPricesResponse> {
     const params = new HttpParams()
       .set('symbol', symbol)
       .set('limit', `${limit}`);
-    return this.http.get<GetPricesResult>(PricesService.API_URL, {params});
+    return this.http.get<GetPricesResponse>(PricesService.API_URL, {params});
   }
 }
