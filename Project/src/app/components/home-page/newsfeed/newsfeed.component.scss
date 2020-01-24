@@ -19,23 +19,19 @@ table {
   border-radius: 1px !important;
 }
 
-tr.example-detail-row {
+tr.news-detail-row {
   //height: 0;
   height: 0 !important;
   border: 0 !important;
   border-radius: 0 !important;
 }
 
-tr.example-element-row:not(.example-expanded-row):hover {
-  background: #777;
+tr.news-title-row:not(.example-expanded-row):hover {
   cursor: pointer;
 }
 
-tr.example-element-row:not(.example-expanded-row):active {
-  background: #ef3d5d;
-}
-
-.example-element-row td {
+.news-title-row td {
+  padding-top: 0.25em;
   border-bottom-width: 0;
 }
 
@@ -44,20 +40,23 @@ tr.example-element-row:not(.example-expanded-row):active {
   display: flex;
 }
 
+.news-about {
+  float:right;
+  padding-top: 0.25em
+}
+
+.news-title {
+  float:left;
+  padding: 0.3em 0 0.3em 0;
+}
+
 .example-element-diagram {
-  min-width: 80px;
   border-radius: 5px;
   box-shadow: #9E9E9E;
   border: 1px solid #b1d8dc;
   padding: 0 8px;
   margin: 8px 0;
   background: aliceblue;
-}
-
-.example-element-symbol {
-  font-weight: bold;
-  font-size: 40px;
-  line-height: normal;
 }
 
 .example-element-description {

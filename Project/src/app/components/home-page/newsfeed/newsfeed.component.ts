@@ -25,7 +25,7 @@ export class NewsfeedComponent implements OnInit {
   @Input() pageSizeOptions = [25, 50];
 
   dataSource;
-  displayedColumns: string[] = ['Title', 'Date'];
+  displayedColumns: string[] = ['Date', 'Title'];
   news: Array<SimpleNewsModel> = new Array<SimpleNewsModel>();
   expandedElement: NewsModel | null;
 

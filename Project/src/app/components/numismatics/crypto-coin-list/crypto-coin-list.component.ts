@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { of } from 'rxjs';
@@ -6,6 +6,7 @@ import { flatMap } from 'rxjs/operators';
 import { SimpleCoinModel } from '../../../models/simple-coin-model';
 import { PriceChangePipeMode } from '../../../pipes/price-change-pipe-mode.enum';
 import { CryptoCoinService } from '../../../services/crypto-coin.service';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-crypto-coin-list',
@@ -13,6 +14,8 @@ import { CryptoCoinService } from '../../../services/crypto-coin.service';
   styleUrls: ['./crypto-coin-list.component.scss']
 })
 export class CryptoCoinListComponent implements OnInit {
+  @Input() pageSizeOptions = [15, 30, 50];
+
   constructor(private cryptoCoinService: CryptoCoinService) {
   }
 
@@ -24,6 +27,7 @@ export class CryptoCoinListComponent implements OnInit {
   dataSource;
 
   @ViewChild(MatSort, {static: true}) sort: MatSort;
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   ngOnInit() {
     this.cryptoCoinService.getCoins().pipe(
@@ -33,6 +37,7 @@ export class CryptoCoinListComponent implements OnInit {
         });
         this.dataSource = new MatTableDataSource(this.coins);
         this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator;
         return of([]);
       })
     ).subscribe();
