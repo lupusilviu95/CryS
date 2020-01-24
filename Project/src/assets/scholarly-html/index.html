@@ -158,13 +158,10 @@
                     </p>
                 </li>
             </ul>
-            <p>API data in the above formats can be accessed via the same URLs as the data used in the front-end application, only prefixed by <code>/rdf</code>. More on this in the Implemntation details section</p>
+            <p>API data in the above formats can be accessed via the same URLs as the data used in the front-end application, only prefixed by <code>/rdf</code>. More on this in the Implemntation details section.</p>
         </section>
         <section typeof="sa:MaterialsAndMethods" id="design">
             <h2>Software design</h2>
-            <p>
-                TODO: Maybe more diagrams
-            </p>
             <figure typeof="sa:Image">
                 <img src="images/sequence_diagram.svg" width="880" height="655">
                 <figcaption>Diagram describing the sequence of events for rendering the home page of CryS</figcaption>
@@ -205,31 +202,185 @@
             <p>
                 Above we have the inital data model for CryS. Since then, we have added a new class, <code>PriceHistory</code>, that models the historical price data for a coin, and have extended the list of attributes each class has.
             </p>
-            <p>
-                The following diagrams show the data properties, but also the relationships between classes. TODO: Add prediction and rdfs:seeAlso to ttl, generate Domain-range graph for all classess.
-            </p>
-            <figure typeof="sa:Image">
-                <img src="images/domain_range_graph_price_history.png">
-                <figcaption>Domain-range graph for PriceHistory</figcaption>
-            </figure>
-            <p>[...] Rest of diagrams</p>
             <figure typeof="sa:Image">
                 <img src="images/class_hierarchy.png">
                 <figcaption>CryS class hierarchy diagram</figcaption>
             </figure>
+            <p>
+                The following diagrams show the data properties, but also the relationships between classes. TODO: Add rdfs:seeAlso to ttl.
+            </p>
+            <figure typeof="sa:Image">
+                <img src="images/coin_drd.png">
+                <figcaption>Domain-range graph for Coin</figcaption>
+            </figure>
+            <figure typeof="sa:Image">
+                <img src="images/news_drd.png">
+                <figcaption>Domain-range graph for News</figcaption>
+            </figure>
+            <figure typeof="sa:Image">
+                <img src="images/pricehistory_drd.png">
+                <figcaption>Domain-range graph for PriceHistory</figcaption>
+            </figure>
+            <figure typeof="sa:Image">
+                <img src="images/prediction_drd.png">
+                <figcaption>Domain-range graph for Prediction</figcaption>
+            </figure>
+            <figure typeof="sa:Image">
+                <img src="images/transaction_drd.png">
+                <figcaption>Domain-range graph for Transaction</figcaption>
+            </figure>
+
             <figure typeof="sa:Image">
                 <img src="images/class_relationship.png">
                 <figcaption>CryS class relationship diagram</figcaption>
             </figure>
-            <p>
-                TODO: Visual graph for a coin
-            </p>
+            <figure typeof="sa:Image">
+                <img src="images/class_links_diagram.png">
+                <figcaption>CryS class links diagram</figcaption>
+            </figure>
+            <figure typeof="sa:Image">
+                <img src="images/USDT_visual_graph.png">
+                <figcaption>The visual graph of the Tether (USDT) cryptocurrency</figcaption>
+            </figure>
         </section>
         <section typeof="sa:MaterialsAndMethods" id="implementation_details">
             <h2>Implementation details</h2>
+            <h3>Database</h3>
             <p>
-                Implementation details go here
+                For storing the linked data, we actually use two different triple stores: <code>GraphDB</code> and <code>Apache Jena Fuseki</code> (along side the officially vended library for queries), each bringing unique functionalities to the table.
             </p>
+            <p>
+                On one hand, GraphDB provides many visual representations for the linked data (e.g. visaul graph for a resource, domain-range diagram etc.), which we used throughout the development process to discover interesting connections between coins.sSome of these graphs are showcased in the Data Modelling section. As a client for sending queries to GraphDB, we have used <code>SPARQLWrapper</code>, a lightweight SPARQL Python library, having the advantage of integrating well in our all-Python back-end ecosystem. The downsight of using GraphDB and SPARQLWrapper is that we could only produce JSON output; while this was easy to ingest by our front-end application, it failed on satisfying the need of producing output in different RDF notations.
+            </p>
+            <p>
+                On the other hand, Apache Jena Fuseki does not offer nealry as many "fancy" data visualizations. But, it offers out-of-the box conversion to multiple RDF notations. However, the downsight of using Jena is that it's only available in Java, and getting Java and Lambda to play along nicely is tricky:
+            </p>
+            <figure typeof="schema:SoftwareSourceCode">
+                <pre>
+                <code>
+public void handleRequest(InputStream inputStream, OutputStream outputStream, Context context) throws IOException {
+            // call these or really weird stuff happens
+            org.apache.jena.query.ARQ.init();
+            org.apache.jena.riot.RIOT.init();
+                </code>
+              </pre>
+            </figure>
+            <h3>API</h3>
+            <p>
+                As we initially planned, the CryS API (both the back-end of our front-end application and the endpoints offering data in different RDF notations) were implemented using AWS Lambda and AWS API Gateway. Next, we dive deeper into what it takes to add functionality to one of CryS's microservices and making it available in the CryS API.
+            </p>
+            <p>
+                The following code implements the functionality of retrieving a coin by id:
+            </p>
+            <figure typeof="schema:SoftwareSourceCode">
+                <pre>
+              <code>
+import json
+from SPARQLWrapper import SPARQLWrapper, JSON
+
+def lambda_handler(event, context):
+  sparql = SPARQLWrapper(
+      "http://ec2-3-120-140-142.eu-central-1.compute.amazonaws.com:7200//repositories/crys")
+  query_base = """
+PREFIX crys: <http://example.com/crys#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+SELECT * WHERE {{
+  ?coin rdf:type crys:Coin ;
+        crys:id "{id}"^^xsd:nonNegativeInteger ;
+        crys:cmc_rank ?cmc_rank ;
+        crys:name ?name ;
+        crys:synopsis ?description ;
+        crys:symbol ?symbol ;
+        crys:circulating_supply ?circulating_supply ;
+        crys:date_added ?date_added ;
+        crys:logo ?logo ;
+        crys:market_cap ?market_cap ;
+        crys:percent_change_24h ?percent_change_24h ;
+        crys:percent_change_7d ?percent_change_7d ;
+        crys:price ?price ;
+        crys:status ?status ;
+        crys:mineable ?mineable ;
+  optional {{?coin  crys:announcement ?announcement}} .
+  optional {{?coin  crys:chat ?chat }} .
+  optional {{?coin  crys:explorer ?explorer }} .
+  optional {{?coin  crys:message_board ?message_board }} .
+  optional {{?coin  crys:reddit ?reddit }} .
+  optional {{?coin  crys:source_code ?source_code }} .
+  optional {{?coin  crys:technical_doc ?technical_doc }} .
+  optional {{?coin  crys:twitter ?twitter }} .
+  optional {{?coin  crys:website ?website }} .
+  optional {{?coin  crys:platform ?platform }} .
+}}
+"""
+
+  path_params = event["pathParameters"]
+
+  id = path_params['id']
+  query = query_base.format(id=id)
+
+  sparql.setQuery(query)
+  sparql.setReturnFormat(JSON)
+  results = sparql.query().convert()
+
+  if len(results['results']['bindings']):
+      return {
+          'statusCode': 200,
+          'headers': {"Access-Control-Allow-Origin": "*"},
+          'body': json.dumps(results)
+      }
+  return {
+      'statusCode': 404,
+      'headers': {"Access-Control-Allow-Origin": "*"},
+      'body': 'No coin with specified id'
+  }
+              </code>
+            </pre>
+                <figcaption>Lambda function handler for retrieving a coin by id</figcaption>
+            </figure>
+            <p>
+                We define the Lambda function GetCoin, and using the API Gateway interface, we map the GET method at the <code>/coins/{id}</code> path on our API.
+            </p>
+            <figure typeof="sa:Image">
+                <img src="images/get_coin_lambda.png">
+                <figcaption>Mapping of an HTTP method on an API resource to a Lambda Function</figcaption>
+            </figure>
+            <p>
+                As a result, API gatway will proxy any HTTP GET requests on the <code>/coins/{id}</code> path to the GetCoin Lambda function, which will construct the sparql query by including the id of the coin we want to retrieve. The result will either be all the information on the coin with the specified id, or an HTTP 404 response if no coin with that ID exists.
+            </p>
+            <p>
+                All the information exposed by the CryS REST API is also available in multiple RDF notations, thanks to the use of Apache Jena. The RDF data is available on the same API, nested in the <code>/rdf</code> prefix.
+            </p>
+            <p>For example, if one would be interested in the latest news on Ethereum, and need the results as N-Triples...</p>
+            <figure typeof="sa:Image">
+                <img src="images/news_ntriples.png">
+                <figcaption>Response returned by https://4cgsg07w3e.execute-api.eu-central-1.amazonaws.com/beta/rdf/news?symbol=ETH&limit=2&format=N-Triples</figcaption>
+            </figure>
+
+            <p>Or maybe someone would be interested in the projected price of Bitcoin for the next three days in Turtle...</p>
+
+            <figure typeof="sa:Image">
+                <img src="images/predictions_turtle.png">
+                <figcaption>Response returned by https://4cgsg07w3e.execute-api.eu-central-1.amazonaws.com/beta/rdf/predictions?symbol=BTC&period=3</figcaption>
+            </figure>
+            <h3>Predictions</h3>
+            <p>
+                One of the most important features we wanted CryS to offer were price predictions for all crytpocurrencies CryS manages. In this section, we take a look on how CryS achieves to predict crytpocurrency prices and how these predictions are fed into the linked data.
+            </p>
+            <p>
+                CryS uses a separate subsystem for generating the predictions. This system runs daily and produces a price forecast for the next 7 days. Each time it runs, the predictions subsystem fetches historical price data aggregated per day, runs the prediction algorithm which produces 7 float values, representing the maximum predicted price for the upcoming 7 days, then constructs a Prediction object and inserts it in both triple stores utilized by CryS.
+            </p>
+            <p>
+                As of the prediction algorithm, we used the <code>AutoRegressive Integrated Moving Average Model</code> - <code>ARIMA</code>, a popular and widely used model for time series forecasting. The ARIMA model is readily available in the time series analysis and time prediction Python library, <code>PyFlux</code>, so all we had to do is a little bit of time series and dataframe magic.
+            </p>
+            <p>
+                To test the ARIMA model's accuracy, we obtained 2000 datapoints of historical price data. From these, we cut 7 apart to keep as validation. Then, we used the first 1993 values as training data for the ARIMA model, and predicted the value of the next 7 datapoints, which we compared with the datpoints we set aside. We used <code>Mean Absolute Percentage Error</code> - <code>MAPE</code> as the performance metric:
+            </p>
+            <figure typeof="sa:Image">
+              <img src="images/mape.svg">
+              <figcaption>Formula for MAPE; A<sub>t</sub> is the actual value and F<sub>t</sub> is the forecasted value</figcaption>
+            </figure>
+            <p>The results we obtained were interesting. For some of the more popular coins, such as Bitcoin or Ethereum, the ARIMA model works great, with a MAPE value of ~ 6%. On some of the more exotic cryptocurrencies, especially those valued at less than a dolar, the MAPE value soars towards the hundreds or thousands mark, so definitely take the predictions offered by CryS with a pinch of salt.</p>
+            <p>As a closing thought, it is worth noting that no person involved in the development of CryS has ever done anything remotely close to timeseries prediction. Instead of refining the predictions, we chose to stick to the task at hand and focus on the semantic side of CryS.</p>
         </section>
         <section typeof="sa:MaterialsAndMethods" id="user_guide">
             <h2>Use cases and user guide</h2>
