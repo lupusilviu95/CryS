@@ -6,16 +6,15 @@ import { of } from 'rxjs';
 import { first, flatMap } from 'rxjs/operators';
 import { CryptoCoinModel, GetCryptoCoinsResult } from '../../../models/crypto-coin-model';
 import { LineGraphData } from '../../../models/line-graph-data';
+import { GetPredictionsResponse } from '../../../models/predictions-model';
 import { GetPricesResponse } from '../../../models/prices-model';
 import { SimpleCoinModel } from '../../../models/simple-coin-model';
 import { SimpleNewsModel } from '../../../models/simple-news-model';
+import { SimplePredictionsModel } from '../../../models/simple-predictions-model';
 import { SimplePricesModel } from '../../../models/simple-prices-model';
 import { CryptoCoinService } from '../../../services/crypto-coin.service';
 import { PredictionsService } from '../../../services/predictions.service';
 import { PricesService } from '../../../services/prices.service';
-import { fakeData } from './fake-data';
-import { GetPredictionsResponse } from '../../../models/predictions-model';
-import { SimplePredictionsModel } from '../../../models/simple-predictions-model';
 
 @Component({
   selector: 'app-view-coin',

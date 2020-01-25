@@ -1,6 +1,6 @@
-import { Builder } from 'builder-pattern';
-import { SimplePriceModel, SimplePricesModel } from './simple-prices-model';
+import * as moment from 'moment';
 import { SimplePredictionModel, SimplePredictionsModel } from './simple-predictions-model';
+import { SimplePriceModel, SimplePricesModel } from './simple-prices-model';
 
 export class LineGraphData {
   data: LineData[];
@@ -18,7 +18,7 @@ export class LineGraphData {
     lineData.series = [];
     pricesModel.prices.forEach((price: SimplePriceModel) => {
       lineData.series.push({
-        name: price.atDate,
+        name:  moment(price.atDate).toDate(),
         value: parseFloat(price.value)
       });
     });
@@ -40,12 +40,12 @@ export class LineGraphData {
     lineData.series = [];
     predictionsModel.predictions.forEach((prediction: SimplePredictionModel) => {
       lineData.series.push({
-        name: prediction.predictedDate,
+        name: moment(prediction.predictedDate).toDate(),
         value: parseFloat(prediction.predictedPrice)
       });
     });
 
-    lineData.series.sort((a, b) => (a.name > b.name) ? 1 : -1)
+    lineData.series.sort((a, b) => (a.name > b.name) ? 1 : -1);
     lineGraphData.data.push(lineData);
     return lineGraphData;
   }
@@ -57,6 +57,6 @@ export class LineData {
 }
 
 export interface PointData {
-  name: string;
+  name: Date;
   value: number;
 }
