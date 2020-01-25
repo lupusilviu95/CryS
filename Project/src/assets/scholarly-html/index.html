@@ -100,7 +100,7 @@
             <h2>Architecture</h2>
             <figure typeof="sa:Image">
                 <img src="images/general_architecture.svg" width="880" height="655">
-                <figcaption>The general architecture of CryS TODO: New architecture with new module, graphDB and fuseki, + prediction daemon</figcaption>
+                <figcaption>The general architecture of CryS</figcaption>
             </figure>
             <p>
                 As mentioned previously, CryS will have a modular architecture based on microservices while also following the serverless paradigm. Given these considerations, we have opted to use Amazon Lambda as the backbone of CryS: multiple lambda functions can be grouped together to create a microservice, new functionality can be added to a microservice by adding a new lambda function, and new microservices can be spun up just as easily thanks to the great integration between Lambda and API Gateway.
@@ -207,7 +207,7 @@
                 <figcaption>CryS class hierarchy diagram</figcaption>
             </figure>
             <p>
-                The following diagrams show the data properties, but also the relationships between classes. TODO: Add rdfs:seeAlso to ttl.
+                The following diagrams show the data properties, but also the relationships between classes.
             </p>
             <figure typeof="sa:Image">
                 <img src="images/coin_drd.png">
@@ -376,8 +376,8 @@ SELECT * WHERE {{
                 To test the ARIMA model's accuracy, we obtained 2000 datapoints of historical price data. From these, we cut 7 apart to keep as validation. Then, we used the first 1993 values as training data for the ARIMA model, and predicted the value of the next 7 datapoints, which we compared with the datpoints we set aside. We used <code>Mean Absolute Percentage Error</code> - <code>MAPE</code> as the performance metric:
             </p>
             <figure typeof="sa:Image">
-              <img src="images/mape.svg">
-              <figcaption>Formula for MAPE; A<sub>t</sub> is the actual value and F<sub>t</sub> is the forecasted value</figcaption>
+                <img src="images/mape.svg">
+                <figcaption>Formula for MAPE; A<sub>t</sub> is the actual value and F<sub>t</sub> is the forecasted value</figcaption>
             </figure>
             <p>The results we obtained were interesting. For some of the more popular coins, such as Bitcoin or Ethereum, the ARIMA model works great, with a MAPE value of ~ 6%. On some of the more exotic cryptocurrencies, especially those valued at less than a dolar, the MAPE value soars towards the hundreds or thousands mark, so definitely take the predictions offered by CryS with a pinch of salt.</p>
             <p>As a closing thought, it is worth noting that no person involved in the development of CryS has ever done anything remotely close to timeseries prediction. Instead of refining the predictions, we chose to stick to the task at hand and focus on the semantic side of CryS.</p>
@@ -385,30 +385,83 @@ SELECT * WHERE {{
         <section typeof="sa:MaterialsAndMethods" id="user_guide">
             <h2>Use cases and user guide</h2>
             <p>
-                Use cases go here
+                This chapter serves as a user guide to the CryS web application, as well as the other facilites CryS offers, such as the API providing RDF data and the CryS SPARQ endpoint. In this regard, we are going to look at three use cases.
             </p>
-            <h3>User Interface</h3>
-            <figure typeof="sa:Image">
-                <img src="images/crys_home_page.png">
-                <figcaption>Landing page of CryS</figcaption>
-            </figure>
+            <h3>Cryptocurrency enthusiast</h3>
+            <P>
+                Alice loves cryptocurrencies. She invests in them regularly and even owns a small Bitcoin farming rig. Her daily routine consists of checking a cryptocurrency news site, another site that provides market wide analysis and one that provides price forecasts. She hears about CryS from Bob, a long time user, so Alice decides to give CryS a try.
+            </P>
             <p>
-                This is the first page CryS users come in contact with. On the left side of the page, recent news about cryptocurrencies are displayed; this a great way for users to catch up with what's been happening in the world of cryptocoins. On the right side of the page, we can see a feed of the latest transactions on popular blockchains; this gives the user insight into the dynamics of the market.
-            </p>
-            <figure typeof="sa:Image">
-                <img src="images/crys_numismatics_page.png">
-                <figcaption>Numismatics - CryS's coin catalog</figcaption>
-            </figure>
-            <p>
-                The Numismatics page displays the collection of cryptocurrencies CryS has information on. A search option will be available, as well as the ability to sort the cryptocurrencies by various fields, such as price, market cap or 24h fluctuation. Clicking on an entry will take the user to that coin's details page.
+                Upon Alice's first visit to CryS, she is greeted with a news feed of crypto-related news and a bitcoin transaction feed. She finds an interesting news article, and decides to read it. That's how she found out that maybe it's a good idea to invest in smaller altcoins...
             </p>
             <figure typeof="sa:Image">
-                <img src="images/crys_coin_details_page.png">
-                <figcaption>Coin details page - get to know the coin</figcaption>
+                <img src="images/crys_landing.png">
+                <figcaption>The homepage of the CryS web application</figcaption>
             </figure>
             <p>
-                The coin details page provides a brief description, as well as useful links to news about that coin specifically (if any). The main focus on this page is the graph illustrating the price prediction for that coin.
+                She then heads out to the Numismatics page, CryS's curated list of crytpocurrencies. She notices that Ethereum, one of the cryptocurrencies she's been interested in for a while now, is doing well, with an increase of almost 1% in the last 24h.
             </p>
+            <figure typeof="sa:Image">
+                <img src="images/crys_numismatics.png">
+                <figcaption>The Numismatics page of the CryS web application</figcaption>
+            </figure>
+            <p>
+                Clicking on the Ethereum row, she is taken to the coin details page, where she finds interesting links. She joins the <code><a href="https://forum.ethereum.org/">Ethereum forum</a></code> and the <code><a href="https://www.reddit.com/r/ethereum/">Ethereum Subreddit</a></code>. She finds out even more about Ethereum by reading the <code><a href="https://github.com/ethereum/wiki/wiki/White-Paper">White Paper</a></code>.
+            </p>
+            <figure typeof="sa:Image">
+                <img src="images/crys_details_1.png">
+                <figcaption>The Coin details page: various info on the coin and links of interest</figcaption>
+            </figure>
+            <p>
+                Further down on the details page, she finds graphs with the price history, as well as future prices. Since the predictions indicate to a rise in price in the upcoming days, she decides to buy some Ethereum.
+            </p>
+            <figure typeof="sa:Image">
+                <img src="images/crys_details_2.png">
+                <figcaption>The Coin details page: price history and price predictions</figcaption>
+            </figure>
+            <p>
+                Scrolling even further down, she finds more news, this time only about Ethereum.
+            </p>
+            <figure typeof="sa:Image">
+                <img src="images/crys_details_3.png">
+                <figcaption>The Coin details page: news about the cryptocurrency</figcaption>
+            </figure>
+            <h3>Web developer</h3>
+            <p>
+                The next use case we are going to look at is about a web developer.
+            </p>
+            <p>
+                Charlie's been looking for a reliable source of data on cryptocurrencies for quite some time. To make things even harder, he needs an API that also provides data in RDF notation, for a faculty project. He stumbles upon CryS and checks out the Project Info section.
+            </p>
+            <figure typeof="sa:Image">
+                <img src="images/crys_project_info.png">
+                <figcaption>The CryS Project info page</figcaption>
+            </figure>
+            <p>
+                Charlie reads the OpenAPI specification and is able to integrate the CryS API into his application in no time.
+            </p>
+            <h3>Semantic web application developer</h3>
+            <p>
+                David is looking into developing a semantic application about cryptocurrencies. He goes through the OpenAPI specification and tests out the API, but is not satisfied, even though the data returned is in RDF notation. He would like more flexibility, like writing his own SPARQL queries against the data CryS uses.
+            </p>
+            <p>
+                Luckily, CryS also offers a SPARQL endpoint. David thinkers with it in YASGUI and writes a query to calculate the distribution of all cryptocurrencies by market cap:
+            </p>
+            <figure typeof="sa:Image">
+                <img src="images/crys_yasgui_query.png">
+                <figcaption>Query against the CryS SPARQL endpoint, using the popular YASGUI editor.</figcaption>
+            </figure>
+            <p>
+                He uses the data returned by the SPARQL endpoint to include a nice pie chart into his application:
+            </p>
+            <figure typeof="sa:Image">
+                <img src="images/pie_chart.svg">
+                <figcaption>Percentage of market by cryptocoin. The data is obtained with a SPARQL query.</figcaption>
+            </figure>
+        </section>
+        <section typeof="sa:MaterialsAndMethods" id="future_considerations">
+            <h2>Future considerations</h2>
+            <p></p>
         </section>
         <section typeof="sa:ReferenceList" id="references">
             <h2>References</h2>
