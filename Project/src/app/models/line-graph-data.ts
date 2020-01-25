@@ -19,7 +19,7 @@ export class LineGraphData {
     pricesModel.prices.forEach((price: SimplePriceModel) => {
       lineData.series.push({
         name: price.atDate,
-        value: parseInt(price.value, 10)
+        value: parseFloat(price.value)
       });
     });
 
@@ -41,7 +41,7 @@ export class LineGraphData {
     predictionsModel.predictions.forEach((prediction: SimplePredictionModel) => {
       lineData.series.push({
         name: prediction.predictedDate,
-        value: parseInt(prediction.predictedPrice, 10)
+        value: parseFloat(prediction.predictedPrice)
       });
     });
 
