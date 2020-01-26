@@ -18,7 +18,9 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ServiceWorkerModule } from '@angular/service-worker';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home-page/home/home.component';
@@ -78,7 +80,8 @@ import { WalletAddressPipe } from './pipes/wallet-address.pipe';
     MatSortModule,
     MatRippleModule,
     MatPaginatorModule,
-    NgxChartsModule
+    NgxChartsModule,
+    ServiceWorkerModule.register('./ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]

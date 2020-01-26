@@ -9,7 +9,8 @@ import { ScholarlyHtmlComponent } from './components/project-info/scholarly-html
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
   { path: 'numismatics', component: CryptoCoinListComponent },
   { path: 'numismatics/:id', component: ViewCoinComponent },
   { path: 'project-info', component: ProjectInfoComponent },

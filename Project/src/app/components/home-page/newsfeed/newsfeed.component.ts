@@ -1,6 +1,7 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { of } from 'rxjs';
 import { flatMap } from 'rxjs/operators';
@@ -25,10 +26,11 @@ export class NewsfeedComponent implements OnInit {
   @Input() pageSizeOptions = [25, 50];
 
   dataSource;
-  displayedColumns: string[] = ['Date', 'Title'];
+  displayedColumns: string[] = ['createDate', 'title'];
   news: Array<SimpleNewsModel> = new Array<SimpleNewsModel>();
   expandedElement: NewsModel | null;
 
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   constructor(private newsService: NewsService) {
@@ -58,7 +60,8 @@ export class NewsfeedComponent implements OnInit {
         this.news.push(SimpleNewsModel.from(newsModel));
       }
     });
-    this.dataSource = new MatTableDataSource(this.news);
+    this.dataSource = new MatTableDataSource(this.news)
+    this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
   }
 }
