@@ -1,0 +1,152 @@
+{
+  "configVersion": 1,
+  "timestamp": 1580043738410,
+  "index": "/CryS/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/CryS/favicon.ico",
+        "/CryS/index.html",
+        "/CryS/main-es2015.0d6388285982d5258d10.js",
+        "/CryS/main-es5.0d6388285982d5258d10.js",
+        "/CryS/manifest.webmanifest",
+        "/CryS/polyfills-es2015.2987770fde9daa1d8a2e.js",
+        "/CryS/polyfills-es5.6696c533341b95a3d617.js",
+        "/CryS/runtime-es2015.edb2fcf2778e7bf1d426.js",
+        "/CryS/runtime-es5.edb2fcf2778e7bf1d426.js",
+        "/CryS/styles.6beaf2f908e7b0775488.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "/CryS/assets/bitcoin_evolution.png",
+        "/CryS/assets/icons/bitcoin-256.png",
+        "/CryS/assets/images/domain-range-graph-pricehistory.svg",
+        "/CryS/assets/images/sequence_diagram.svg",
+        "/CryS/assets/images/use_case_diagram.svg",
+        "/CryS/assets/scholarly-html/fonts/libre-baskerville-bold.css",
+        "/CryS/assets/scholarly-html/fonts/libre-baskerville-italic.css",
+        "/CryS/assets/scholarly-html/fonts/libre-baskerville-regular.css",
+        "/CryS/assets/scholarly-html/images/USDT_visual_graph.png",
+        "/CryS/assets/scholarly-html/images/class_hierarchy.png",
+        "/CryS/assets/scholarly-html/images/class_links_diagram.png",
+        "/CryS/assets/scholarly-html/images/class_relationship.png",
+        "/CryS/assets/scholarly-html/images/coin_drd.png",
+        "/CryS/assets/scholarly-html/images/crys_coin_details_page.png",
+        "/CryS/assets/scholarly-html/images/crys_details_1.png",
+        "/CryS/assets/scholarly-html/images/crys_details_2.png",
+        "/CryS/assets/scholarly-html/images/crys_details_3.png",
+        "/CryS/assets/scholarly-html/images/crys_landing.png",
+        "/CryS/assets/scholarly-html/images/crys_numismatics.png",
+        "/CryS/assets/scholarly-html/images/crys_project_info.png",
+        "/CryS/assets/scholarly-html/images/crys_yasgui_query.png",
+        "/CryS/assets/scholarly-html/images/data_modeling_diagram.svg",
+        "/CryS/assets/scholarly-html/images/domain_range_graph_price_history.png",
+        "/CryS/assets/scholarly-html/images/general_architecture.svg",
+        "/CryS/assets/scholarly-html/images/get_coin_lambda.png",
+        "/CryS/assets/scholarly-html/images/mape.svg",
+        "/CryS/assets/scholarly-html/images/news_drd.png",
+        "/CryS/assets/scholarly-html/images/news_ntriples.png",
+        "/CryS/assets/scholarly-html/images/pie_chart.svg",
+        "/CryS/assets/scholarly-html/images/prediction_drd.png",
+        "/CryS/assets/scholarly-html/images/predictions_turtle.png",
+        "/CryS/assets/scholarly-html/images/pricehistory_drd.png",
+        "/CryS/assets/scholarly-html/images/sequence_diagram.svg",
+        "/CryS/assets/scholarly-html/images/transaction_drd.png",
+        "/CryS/assets/scholarly-html/images/use_case_diagram.svg",
+        "/CryS/assets/scholarly-html/index.html",
+        "/CryS/assets/scholarly-html/node_modules/normalize.css/normalize.css",
+        "/CryS/assets/scholarly-html/scholarly.css"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "api-coins",
+      "patterns": [
+        "https:\\/\\/4cgsg07w3e\\.execute-api\\.eu-central-1\\.amazonaws\\.com\\/beta\\/coins"
+      ],
+      "strategy": "performance",
+      "maxSize": 10,
+      "maxAge": 86400000,
+      "timeoutMs": 3000,
+      "version": 1
+    }
+  ],
+  "hashTable": {
+    "/CryS/assets/bitcoin_evolution.png": "d10593da5c45ac11b8ff3748fbb9b68647f24930",
+    "/CryS/assets/icons/bitcoin-256.png": "071eb15ab3f6c84df0c83f72e9a607459006d456",
+    "/CryS/assets/images/domain-range-graph-pricehistory.svg": "c3f12b05a697396496e9ee483f1fe78e601eabc1",
+    "/CryS/assets/images/sequence_diagram.svg": "fc7a38e009c662f3defce988320c5b48f093e3f3",
+    "/CryS/assets/images/use_case_diagram.svg": "179b70e9d60f04057e96b7138764022b518273f0",
+    "/CryS/assets/scholarly-html/fonts/libre-baskerville-bold.css": "beedd51768f6aa8d10f82f0014b8361a90ca0141",
+    "/CryS/assets/scholarly-html/fonts/libre-baskerville-italic.css": "e2b846b93d18f95c993fdf644d98229edf4ca61c",
+    "/CryS/assets/scholarly-html/fonts/libre-baskerville-regular.css": "0472e969128235546aa82b7912146cb5188bce19",
+    "/CryS/assets/scholarly-html/images/USDT_visual_graph.png": "c9a384cffc05018aa5f1f1d0db1a66c21539a158",
+    "/CryS/assets/scholarly-html/images/class_hierarchy.png": "c8cadcbfa55e97d817aa9899768d84fdb22f5a57",
+    "/CryS/assets/scholarly-html/images/class_links_diagram.png": "f70fad82ca86d660f2789dcae16c2f971fc93bac",
+    "/CryS/assets/scholarly-html/images/class_relationship.png": "a062efa054671090a45d921372e547d6237d1106",
+    "/CryS/assets/scholarly-html/images/coin_drd.png": "5731e9ee5c1d26f234b6379475c03541d86d812e",
+    "/CryS/assets/scholarly-html/images/crys_coin_details_page.png": "1447cebb70c0fb10cd707c9f9d0052ae5a391fdc",
+    "/CryS/assets/scholarly-html/images/crys_details_1.png": "567fe5511f895ee2829856428477f25baabb8303",
+    "/CryS/assets/scholarly-html/images/crys_details_2.png": "9afcc41886dea64662bc75d9569590313c16f451",
+    "/CryS/assets/scholarly-html/images/crys_details_3.png": "5b901805b1c2b61c28b60a5d4630267605acb316",
+    "/CryS/assets/scholarly-html/images/crys_landing.png": "8fa0a3ee29fca62a7978a343a29fb57068f0ed5c",
+    "/CryS/assets/scholarly-html/images/crys_numismatics.png": "52ec47d22d233505d41efc5216bafd852cf23f7a",
+    "/CryS/assets/scholarly-html/images/crys_project_info.png": "f233c311b82a33f22722b01da1363f332f7e4b59",
+    "/CryS/assets/scholarly-html/images/crys_yasgui_query.png": "a3d41ed962a99c1a9b968996d81311f891d1639b",
+    "/CryS/assets/scholarly-html/images/data_modeling_diagram.svg": "f5b4ad1b9ee06aa11fe9810beaa5df3c29402ea1",
+    "/CryS/assets/scholarly-html/images/domain_range_graph_price_history.png": "13793f6354a647d3a7e585a7ea100bc4f9e1a4b7",
+    "/CryS/assets/scholarly-html/images/general_architecture.svg": "dcd2e7143590dbdd4e2cb7e5d732f0d6dba71399",
+    "/CryS/assets/scholarly-html/images/get_coin_lambda.png": "165a13656b4551a73936d278c8526f1af1c2a185",
+    "/CryS/assets/scholarly-html/images/mape.svg": "5e843f2b73ebad6644ce769c2625060fa2e67b49",
+    "/CryS/assets/scholarly-html/images/news_drd.png": "b28b27c99c8aecb2e69967c5fe2190f24d86fe55",
+    "/CryS/assets/scholarly-html/images/news_ntriples.png": "875695da90b5458b5e064727eb4377545ff44913",
+    "/CryS/assets/scholarly-html/images/pie_chart.svg": "41c67b137e62df56766763e90e4b36bd587288b9",
+    "/CryS/assets/scholarly-html/images/prediction_drd.png": "fc4fa4e9d2843842d72c0616de197149b5ae9f7a",
+    "/CryS/assets/scholarly-html/images/predictions_turtle.png": "559c8bf81d36ff61a3cb62a0e8b3099e6362ab7f",
+    "/CryS/assets/scholarly-html/images/pricehistory_drd.png": "b2c03aaebae1f8430cb245b905b47e92d1aaaa6b",
+    "/CryS/assets/scholarly-html/images/sequence_diagram.svg": "fc7a38e009c662f3defce988320c5b48f093e3f3",
+    "/CryS/assets/scholarly-html/images/transaction_drd.png": "f921acc72063dcf662a8796752c75ed374db7fa5",
+    "/CryS/assets/scholarly-html/images/use_case_diagram.svg": "179b70e9d60f04057e96b7138764022b518273f0",
+    "/CryS/assets/scholarly-html/index.html": "1d8b4f80e66d2e636693cbfd8498f0615be4438f",
+    "/CryS/assets/scholarly-html/node_modules/normalize.css/normalize.css": "f466245d5ad990c1062481c0e1f8741fb4bfa00e",
+    "/CryS/assets/scholarly-html/scholarly.css": "53e13113db3b73527f4f5ac4c6560b90cd7a1a87",
+    "/CryS/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "/CryS/index.html": "412a5dbd308355249ee302484240c08a9fe7536c",
+    "/CryS/main-es2015.0d6388285982d5258d10.js": "d609db02298c797c0206f8ad772895f5e30a37d7",
+    "/CryS/main-es5.0d6388285982d5258d10.js": "f7eb1e4cd2d29908456dfe99f4e27acde9788844",
+    "/CryS/manifest.webmanifest": "b3eb6408a01455fefc32e50dfd2f09a839dbedc8",
+    "/CryS/polyfills-es2015.2987770fde9daa1d8a2e.js": "cf5cbfa9134716054fb479ab21362146cdf1f2ff",
+    "/CryS/polyfills-es5.6696c533341b95a3d617.js": "6bff0c03e05bb347d213ad1b3674045eb892d189",
+    "/CryS/runtime-es2015.edb2fcf2778e7bf1d426.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "/CryS/runtime-es5.edb2fcf2778e7bf1d426.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "/CryS/styles.6beaf2f908e7b0775488.css": "94403a22a1a9be8b24bf5f25a70f8b0f66c089c8"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}
