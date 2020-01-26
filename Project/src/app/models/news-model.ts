@@ -10,6 +10,7 @@ export interface GetNewsResult {
 export interface NewsModel {
   news: News;
   about: About;
+  about_ids: AboutIds;
   description: Description;
   source: Source;
   title: Title;
@@ -23,6 +24,11 @@ export interface News {
 }
 
 export interface About {
+  type: string;
+  value: string;
+}
+
+export interface AboutIds {
   type: string;
   value: string;
 }
