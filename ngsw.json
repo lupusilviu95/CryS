@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1580044523103,
+  "timestamp": 1580044664961,
   "index": "/CryS/index.html",
   "assetGroups": [
     {
@@ -10,8 +10,8 @@
       "urls": [
         "/CryS/favicon.ico",
         "/CryS/index.html",
-        "/CryS/main-es2015.8a148ce6871ac3d3cfdc.js",
-        "/CryS/main-es5.8a148ce6871ac3d3cfdc.js",
+        "/CryS/main-es2015.d72ab714bab14818dfdf.js",
+        "/CryS/main-es5.d72ab714bab14818dfdf.js",
         "/CryS/manifest.webmanifest",
         "/CryS/polyfills-es2015.2987770fde9daa1d8a2e.js",
         "/CryS/polyfills-es5.6696c533341b95a3d617.js",
@@ -72,7 +72,8 @@
     {
       "name": "api-coins",
       "patterns": [
-        "https:\\/\\/4cgsg07w3e\\.execute-api\\.eu-central-1\\.amazonaws\\.com\\/beta\\/coins"
+        "https:\\/\\/4cgsg07w3e\\.execute-api\\.eu-central-1\\.amazonaws\\.com\\/beta\\/coins",
+        "https:\\/\\/4cgsg07w3e\\.execute-api\\.eu-central-1\\.amazonaws\\.com\\/beta\\/coins\\/"
       ],
       "strategy": "performance",
       "maxSize": 10,
@@ -121,9 +122,9 @@
     "/CryS/assets/scholarly-html/node_modules/normalize.css/normalize.css": "f466245d5ad990c1062481c0e1f8741fb4bfa00e",
     "/CryS/assets/scholarly-html/scholarly.css": "53e13113db3b73527f4f5ac4c6560b90cd7a1a87",
     "/CryS/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/CryS/index.html": "24282d58e19ea664b24f2957de6e4eabf4003471",
-    "/CryS/main-es2015.8a148ce6871ac3d3cfdc.js": "fba3d93a75fc5e17620ded65ae7b8e4b851730bd",
-    "/CryS/main-es5.8a148ce6871ac3d3cfdc.js": "df64f74be17b2c86870edd77f456cd22465e1fb8",
+    "/CryS/index.html": "489c3706a3a297f29d72bd03ff8d0002fd2a0832",
+    "/CryS/main-es2015.d72ab714bab14818dfdf.js": "f2b8e9021f4fc0a22777fe3eb0f165544b460308",
+    "/CryS/main-es5.d72ab714bab14818dfdf.js": "74beefcedd5c7bfafd75cfeacb7f3f09b770435f",
     "/CryS/manifest.webmanifest": "633fc3a1e892669bef9bf31fa6c00ee6b03f62d8",
     "/CryS/polyfills-es2015.2987770fde9daa1d8a2e.js": "cf5cbfa9134716054fb479ab21362146cdf1f2ff",
     "/CryS/polyfills-es5.6696c533341b95a3d617.js": "6bff0c03e05bb347d213ad1b3674045eb892d189",
