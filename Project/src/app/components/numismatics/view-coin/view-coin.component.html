@@ -122,7 +122,7 @@
             <div class="ui hidden divider"></div>
             <div class="sixteen wide column">
               <div class="ui stackable grid">
-                <div class="eight wide column" *ngIf="pricesHistoryData">
+                <div class="eight wide column chart-column" *ngIf="pricesHistoryData">
                   <h2 class="ui header">Price History</h2>
                   <app-line-chart
                     [view]="[500, 350]"
@@ -131,7 +131,7 @@
                     [yAxisLabel]="'USD'">
                   </app-line-chart>
                 </div>
-                <div class="eight wide column" *ngIf="predictionsData">
+                <div class="eight wide column chart-column" *ngIf="predictionsData">
                   <h2 class="ui header">Prediction</h2>
                   <app-line-chart
                     [view]="[500, 350]"
