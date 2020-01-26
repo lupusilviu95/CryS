@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1580044664961,
+  "timestamp": 1580052270521,
   "index": "/CryS/index.html",
   "assetGroups": [
     {
@@ -10,8 +10,8 @@
       "urls": [
         "/CryS/favicon.ico",
         "/CryS/index.html",
-        "/CryS/main-es2015.d72ab714bab14818dfdf.js",
-        "/CryS/main-es5.d72ab714bab14818dfdf.js",
+        "/CryS/main-es2015.389297f9676de8a8b2a7.js",
+        "/CryS/main-es5.389297f9676de8a8b2a7.js",
         "/CryS/manifest.webmanifest",
         "/CryS/polyfills-es2015.2987770fde9daa1d8a2e.js",
         "/CryS/polyfills-es5.6696c533341b95a3d617.js",
@@ -122,9 +122,9 @@
     "/CryS/assets/scholarly-html/node_modules/normalize.css/normalize.css": "f466245d5ad990c1062481c0e1f8741fb4bfa00e",
     "/CryS/assets/scholarly-html/scholarly.css": "53e13113db3b73527f4f5ac4c6560b90cd7a1a87",
     "/CryS/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/CryS/index.html": "489c3706a3a297f29d72bd03ff8d0002fd2a0832",
-    "/CryS/main-es2015.d72ab714bab14818dfdf.js": "f2b8e9021f4fc0a22777fe3eb0f165544b460308",
-    "/CryS/main-es5.d72ab714bab14818dfdf.js": "74beefcedd5c7bfafd75cfeacb7f3f09b770435f",
+    "/CryS/index.html": "1608845c889289ceae3c2e046cd5f4200ca57a3a",
+    "/CryS/main-es2015.389297f9676de8a8b2a7.js": "f412b54df48a471902df44ef362a0dad91a0168f",
+    "/CryS/main-es5.389297f9676de8a8b2a7.js": "0fd73756c32f6cc63f6ece41af5d476747e283c5",
     "/CryS/manifest.webmanifest": "633fc3a1e892669bef9bf31fa6c00ee6b03f62d8",
     "/CryS/polyfills-es2015.2987770fde9daa1d8a2e.js": "cf5cbfa9134716054fb479ab21362146cdf1f2ff",
     "/CryS/polyfills-es5.6696c533341b95a3d617.js": "6bff0c03e05bb347d213ad1b3674045eb892d189",
