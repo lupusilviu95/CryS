@@ -12,17 +12,20 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home-page/home/home.component';
 import { NewsfeedComponent } from './components/home-page/newsfeed/newsfeed.component';
 import { TransactionsFeedComponent } from './components/home-page/transactionsfeed/transactions-feed.component';
 import { CryptoCoinListComponent } from './components/numismatics/crypto-coin-list/crypto-coin-list.component';
+import { LineChartComponent } from './components/numismatics/view-coin/line-chart/line-chart.component';
 import { ViewCoinComponent } from './components/numismatics/view-coin/view-coin.component';
 import { BlogComponent } from './components/project-info/blog/blog.component';
 import { ProjectInfoComponent } from './components/project-info/project-info.component';
@@ -31,12 +34,9 @@ import { FooterComponent } from './components/site-frame/footer/footer.component
 import { HeaderComponent } from './components/site-frame/header/header.component';
 import { MenuComponent } from './components/site-frame/menu/menu.component';
 import { PriceChangePipe } from './pipes/price-change-color.pipe';
+import { TimeElapsedPipe } from './pipes/time-elapsed.pipe';
 import { TransactionHashPipe } from './pipes/transaction-hash.pipe';
 import { WalletAddressPipe } from './pipes/wallet-address.pipe';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { TimeElapsedPipe } from './pipes/time-elapsed.pipe';
-import { LineChartComponent } from './components/numismatics/view-coin/line-chart/line-chart.component';
-import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [

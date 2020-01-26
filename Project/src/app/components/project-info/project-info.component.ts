@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MatExpansionPanel} from "@angular/material/expansion";
-import {NavigationExtras, Router} from "@angular/router";
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-project-info',
@@ -15,35 +14,25 @@ export class ProjectInfoComponent implements OnInit {
   openApiLink = ProjectInfoComponent.openApiDocumentationLink;
   diagrams = [
     {
-      'path': 'assets/scholarly-html/images/general_architecture.svg',
-      'name': 'Architecture'
+      path: 'assets/scholarly-html/images/general_architecture.svg',
+      name: 'Architecture'
     },
     {
-      'path': 'assets/images/use_case_diagram.svg',
-      'name': 'Use Case Diagram'
+      path: 'assets/images/use_case_diagram.svg',
+      name: 'Use Case Diagram'
     },
     {
-      'path': 'assets/images/sequence_diagram.svg',
-      'name': 'Sequence Diagram'
+      path: 'assets/images/sequence_diagram.svg',
+      name: 'Sequence Diagram'
     }];
 
-  showingDiagrams: boolean = false;
-  constructor(private router: Router) { }
+  showingDiagrams = false;
+  constructor() { }
 
   ngOnInit() {
   }
 
-
-
   toggleDiagrams() {
     this.showingDiagrams = !this.showingDiagrams;
-  }
-
-  navigate(path) {
-    let navigationExtras: NavigationExtras = {
-      queryParamsHandling: 'preserve',
-      preserveFragment: true
-    };
-    this.router.navigateByUrl(path, navigationExtras);
   }
 }

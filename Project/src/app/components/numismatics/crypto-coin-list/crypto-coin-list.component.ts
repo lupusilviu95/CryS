@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { of } from 'rxjs';
@@ -6,7 +7,6 @@ import { flatMap } from 'rxjs/operators';
 import { SimpleCoinModel } from '../../../models/simple-coin-model';
 import { PriceChangePipeMode } from '../../../pipes/price-change-pipe-mode.enum';
 import { CryptoCoinService } from '../../../services/crypto-coin.service';
-import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-crypto-coin-list',
