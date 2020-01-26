@@ -13,7 +13,7 @@ export class NewsService {
   }
 
   public getAllNews(): Observable<GetNewsResult> {
-    return this.http.get<GetNewsResult>(`${NewsService.API_URL}/`);
+    return this.http.get<GetNewsResult>(NewsService.API_URL);
   }
 
   public getNews(symbol: string, limit: string = '10'): Observable<GetNewsResult> {

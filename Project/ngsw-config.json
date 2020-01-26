@@ -30,7 +30,8 @@
     {
       "name": "api-coins",
       "urls": [
-        "https://4cgsg07w3e.execute-api.eu-central-1.amazonaws.com/beta/coins"
+        "https://4cgsg07w3e.execute-api.eu-central-1.amazonaws.com/beta/coins",
+        "https://4cgsg07w3e.execute-api.eu-central-1.amazonaws.com/beta/coins/"
       ],
       "cacheConfig": {
         "maxSize": 10,

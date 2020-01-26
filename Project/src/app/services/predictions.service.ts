@@ -13,7 +13,7 @@ export class PredictionsService {
   }
 
   public getPredictions(): Observable<GetPredictionsResponse> {
-    return this.http.get<GetPredictionsResponse>(`${PredictionsService.API_URL}/`);
+    return this.http.get<GetPredictionsResponse>(PredictionsService.API_URL);
   }
 
   public getPrediction(symbol: string, period: number = 7): Observable<GetPredictionsResponse> {

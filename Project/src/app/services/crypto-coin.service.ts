@@ -13,7 +13,7 @@ export class CryptoCoinService {
   }
 
   public getCoins(): Observable<GetCryptoCoinsResult> {
-    return this.http.get<GetCryptoCoinsResult>(`${CryptoCoinService.API_URL}/`);
+    return this.http.get<GetCryptoCoinsResult>(CryptoCoinService.API_URL);
   }
 
   public getCoin(id: string): Observable<GetCryptoCoinsResult> {
