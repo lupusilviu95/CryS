@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1580043738410,
+  "timestamp": 1580044282618,
   "index": "/CryS/index.html",
   "assetGroups": [
     {
@@ -124,7 +124,7 @@
     "/CryS/index.html": "412a5dbd308355249ee302484240c08a9fe7536c",
     "/CryS/main-es2015.0d6388285982d5258d10.js": "d609db02298c797c0206f8ad772895f5e30a37d7",
     "/CryS/main-es5.0d6388285982d5258d10.js": "f7eb1e4cd2d29908456dfe99f4e27acde9788844",
-    "/CryS/manifest.webmanifest": "b3eb6408a01455fefc32e50dfd2f09a839dbedc8",
+    "/CryS/manifest.webmanifest": "633fc3a1e892669bef9bf31fa6c00ee6b03f62d8",
     "/CryS/polyfills-es2015.2987770fde9daa1d8a2e.js": "cf5cbfa9134716054fb479ab21362146cdf1f2ff",
     "/CryS/polyfills-es5.6696c533341b95a3d617.js": "6bff0c03e05bb347d213ad1b3674045eb892d189",
     "/CryS/runtime-es2015.edb2fcf2778e7bf1d426.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
