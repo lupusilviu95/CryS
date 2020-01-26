@@ -1,61 +1,57 @@
-<div class="ui container">
-  <mat-toolbar>News</mat-toolbar>
-</div>
-<div class="ui container">
-  <table mat-table [dataSource]="dataSource"
-         matSort
-         multiTemplateDataRows
-         class="ui selectable table">
+<mat-toolbar>News</mat-toolbar>
+<table mat-table [dataSource]="dataSource"
+       matSort style="margin-top: 0"
+       multiTemplateDataRows
+       class="ui selectable table">
 
-    <!-- Date Column -->
-    <ng-container matColumnDef="createDate">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
-      <td mat-cell *matCellDef="let newsArticle"> {{newsArticle.createDate | date: 'MMM dd HH:mm' }} </td>
-    </ng-container>
+  <!-- Date Column -->
+  <ng-container matColumnDef="createDate">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
+    <td mat-cell *matCellDef="let newsArticle"> {{newsArticle.createDate | date: 'MMM dd HH:mm' }} </td>
+  </ng-container>
 
-    <!-- Title Column -->
-    <ng-container matColumnDef="title">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Title </th>
-      <td mat-cell *matCellDef="let newsArticle">
-        <div class="ui tiny labels news-about" style="float:right" *ngIf="newsArticle.abouts && !coinSymbol">
-          <a class="ui horizontal label" *ngFor="let newsAbout of newsArticle.abouts" routerLink="/numismatics/{{newsAbout.id}}">
-            {{newsAbout.symbol}}
-          </a>
-        </div>
-        <div class="news-title">
-          <a class="{{newsArticle.url}}">
-            {{ newsArticle.title }}
-          </a>
-        </div>
-      </td>
-    </ng-container>
+  <!-- Title Column -->
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Title </th>
+    <td mat-cell *matCellDef="let newsArticle">
+      <div class="ui tiny labels news-about" style="float:right" *ngIf="newsArticle.abouts && !coinSymbol">
+        <a class="ui horizontal label" *ngFor="let newsAbout of newsArticle.abouts" routerLink="/numismatics/{{newsAbout.id}}">
+          {{newsAbout.symbol}}
+        </a>
+      </div>
+      <div class="news-title">
+        <a class="{{newsArticle.url}}">
+          {{ newsArticle.title }}
+        </a>
+      </div>
+    </td>
+  </ng-container>
 
-    <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
-    <ng-container matColumnDef="expandedDetail">
-      <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
-        <div class="example-element-detail"
-             [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
-          <div class="example-element-diagram">
-            <div class="example-element-description"> {{element.description}} </div>
-            <div class="example-element-url">
-              <a href="{{element.url}}">{{element.url}}</a>
-            </div>
-            <div class="example-element-date">Date: {{element.createDate | date : 'MMM dd HH:mm:ss'}} </div>
-            <div class="example-element-description">
-              <span class="example-element-source"> -- {{element.source}} </span>
-            </div>
+  <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
+      <div class="example-element-detail"
+           [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+        <div class="example-element-diagram">
+          <div class="example-element-description"> {{element.description}} </div>
+          <div class="example-element-url">
+            <a href="{{element.url}}">{{element.url}}</a>
+          </div>
+          <div class="example-element-date">Date: {{element.createDate | date : 'MMM dd HH:mm:ss'}} </div>
+          <div class="example-element-description">
+            <span class="example-element-source"> -- {{element.source}} </span>
           </div>
         </div>
-      </td>
-    </ng-container>
+      </div>
+    </td>
+  </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let element; columns: displayedColumns;"
-        class="news-title-row"
-        [class.example-expanded-row]="expandedElement === element"
-        (click)="expandedElement = expandedElement === element ? null : element">
-    </tr>
-    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="news-detail-row"></tr>
-  </table>
-  <mat-paginator [pageSizeOptions]="pageSizeOptions" showFirstLastButtons color="accent"></mat-paginator>
-</div>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let element; columns: displayedColumns;"
+      class="news-title-row"
+      [class.example-expanded-row]="expandedElement === element"
+      (click)="expandedElement = expandedElement === element ? null : element">
+  </tr>
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="news-detail-row"></tr>
+</table>
+<mat-paginator [pageSizeOptions]="pageSizeOptions" showFirstLastButtons color="accent"></mat-paginator>

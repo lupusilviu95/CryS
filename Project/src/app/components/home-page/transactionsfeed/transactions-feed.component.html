@@ -1,69 +1,65 @@
-<div class="ui container">
-  <mat-toolbar>Transactions</mat-toolbar>
-</div>
+<mat-toolbar>Transactions</mat-toolbar>
+<table mat-table [dataSource]="dataSource"
+       matSort style="margin-top: 0"
+       multiTemplateDataRows
+       class="ui selectable table"
+        >
 
-<div class="ui container">
-    <table mat-table [dataSource]="dataSource"
-           matSort
-           multiTemplateDataRows
-           class="ui selectable table">
+  <!-- Hash Column -->
+  <ng-container matColumnDef="hash">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Hash </th>
+    <td mat-cell *matCellDef="let transaction">
+      <div class="ui item">
+        <div class="header">
+          <a>{{transaction.hash | transactionHash}}</a>
+        </div>
+      </div>
+    </td>
+  </ng-container>
 
-      <!-- Hash Column -->
-      <ng-container matColumnDef="hash">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Hash </th>
-        <td mat-cell *matCellDef="let transaction">
-          <div class="ui item">
-            <div class="header">
-              <a>{{transaction.hash | transactionHash}}</a>
+  <!-- Price Column -->
+  <ng-container matColumnDef="dateTraded">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
+    <td mat-cell *matCellDef="let transaction"> {{transaction.dateTraded | date : 'MMM dd HH:mm:ss'}} </td>
+  </ng-container>
+
+  <!-- Amount Column -->
+  <ng-container matColumnDef="amountUsd">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Amount (USD) </th>
+    <td mat-cell *matCellDef="let transaction"> ${{transaction.amountUsd | number}} </td>
+  </ng-container>
+
+  <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let transaction" [attr.colspan]="displayedColumns.length">
+      <div class="element-detail"
+           [@detailExpand]="transaction == expandedTransaction ? 'expanded' : 'collapsed'">
+        <div class="ui horizontal list">
+          <div class="item">
+            <i class="big address card outline icon"></i>
+            <div class="content">
+              <a class="header">{{transaction.sender | walletAddress }}</a>
+              <div class="description">Sender</div>
             </div>
           </div>
-        </td>
-      </ng-container>
-
-      <!-- Price Column -->
-      <ng-container matColumnDef="dateTraded">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
-        <td mat-cell *matCellDef="let transaction"> {{transaction.dateTraded | date : 'MMM dd HH:mm:ss'}} </td>
-      </ng-container>
-
-      <!-- Amount Column -->
-      <ng-container matColumnDef="amountUsd">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Amount (USD) </th>
-        <td mat-cell *matCellDef="let transaction"> ${{transaction.amountUsd | number}} </td>
-      </ng-container>
-
-      <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
-      <ng-container matColumnDef="expandedDetail">
-        <td mat-cell *matCellDef="let transaction" [attr.colspan]="displayedColumns.length">
-          <div class="element-detail"
-               [@detailExpand]="transaction == expandedTransaction ? 'expanded' : 'collapsed'">
-            <div class="ui horizontal list">
-              <div class="item">
-                <i class="big address card outline icon"></i>
-                <div class="content">
-                  <a class="header">{{transaction.sender | walletAddress }}</a>
-                  <div class="description">Sender</div>
-                </div>
-              </div>
-              <div class="item">
-                <i class="big address card outline icon"></i>
-                <div class="content">
-                  <a class="header">{{transaction.receiver | walletAddress }}</a>
-                  <div class="description">Receiver</div>
-                </div>
-              </div>
+          <div class="item">
+            <i class="big address card outline icon"></i>
+            <div class="content">
+              <a class="header">{{transaction.receiver | walletAddress }}</a>
+              <div class="description">Receiver</div>
             </div>
           </div>
-        </td>
-      </ng-container>
+        </div>
+      </div>
+    </td>
+  </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let transaction; columns: displayedColumns;"
-          class="element-row"
-          [class.example-expanded-row]="expandedTransaction === transaction"
-          (click)="expandedTransaction = expandedTransaction === transaction ? null : transaction">
-      </tr>
-      <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="detail-row"></tr>
-    </table>
-    <mat-paginator [pageSizeOptions]="pageSizeOptions" showFirstLastButtons color="accent"></mat-paginator>
-</div>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let transaction; columns: displayedColumns;"
+      class="element-row"
+      [class.example-expanded-row]="expandedTransaction === transaction"
+      (click)="expandedTransaction = expandedTransaction === transaction ? null : transaction">
+  </tr>
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="detail-row"></tr>
+</table>
+<mat-paginator [pageSizeOptions]="pageSizeOptions" showFirstLastButtons color="accent"></mat-paginator>

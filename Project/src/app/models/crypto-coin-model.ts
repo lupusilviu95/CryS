@@ -33,6 +33,7 @@ export interface CryptoCoinModel {
   chat: Chat;
   announcement: Announcement;
   platform: Platform;
+  seeAlso: SeeAlso;
 }
 
 export interface CoinSymbol {
@@ -164,6 +165,11 @@ export interface Announcement {
 }
 
 export interface Platform {
+  type: string;
+  value: string;
+}
+
+export interface SeeAlso {
   type: string;
   value: string;
 }

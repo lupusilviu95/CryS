@@ -6,7 +6,7 @@
    <app-menu></app-menu>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
+    <mat-toolbar class="header-color">
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -15,7 +15,9 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      CryS
+      <span class="header-text">
+        CryS
+      </span>
     </mat-toolbar>
 
     <router-outlet></router-outlet>

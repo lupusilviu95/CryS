@@ -1,152 +1,179 @@
-<div class="ui padded grid" xmlns:background="http://www.w3.org/1999/xhtml">
-  <div class="column">
-    <div class="ui container">
-      <div class="ui container">
-        <mat-toolbar>Details</mat-toolbar>
+<div class="ui container">
+
+  <div style="padding-top:1em;">
+    <mat-toolbar>Details</mat-toolbar>
+  </div>
+
+  <div class="ui container very padded segment" style="margin-top: 0">
+
+    <h1 class="ui header">
+      <img class="ui image" src="{{coin.logo}}" alt="{{coin.name}}">
+      <div class="content">
+        {{coin.name}}
+        <div class="sub header">
+          <span style="color:lightslategray">({{coin.symbol}})</span>
+          <a class="ui green mini label" *ngIf="coin.status && coin.status==='active'">
+            {{coin.status}}
+          </a>
+          <a class="ui mini label" *ngIf="coin.status && coin.status==='inactive'">
+            {{coin.status}}
+          </a>
+        </div>
       </div>
-      <div class="ui container">
-        <div class="ui very padded segment" *ngIf="this.coin">
+    </h1>
 
-          <h1 class="ui header">
-            <img class="ui image" src="{{coin.logo}}" alt="{{coin.name}}">
-            <div class="content">
-              {{coin.name}}
-              <div class="sub header">
-                <span style="color:lightslategray">({{coin.symbol}})</span>
-                <a class="ui green mini label" *ngIf="coin.status && coin.status==='active'">
-                  {{coin.status}}
+    <div class="ui hidden section divider"></div>
+
+    <div class="ui stackable grid">
+      <div class="two column row">
+        <div class="twelve wide column">
+          <div class="ui large relaxed list">
+            <div class="item">
+              <i class="chart bar icon"></i>
+              <div class="content">
+                <div class="ui green horizontal label">Rank {{coin.cmcRank}}</div>
+              </div>
+            </div>
+            <div class="item">
+              <i class="linkify icon"></i>
+              <div class="content">
+                <a href="{{coin.website}}">Website</a>
+              </div>
+            </div>
+            <div class="item">
+              <i class="newspaper icon"></i>
+              <div class="content">
+                <a href="{{coin.messageBoard}}">Message Board</a>
+              </div>
+            </div>
+            <div class="item">
+              <i class="code icon"></i>
+              <div class="content">
+                <a href="{{coin.sourceCode}}">Source Code</a>
+              </div>
+            </div>
+            <div class="item">
+              <i class="text file outline icon"></i>
+              <div class="content">
+                <a href="{{coin.technicalDoc}}">Technical Document</a>
+              </div>
+            </div>
+            <div class="item">
+              <i class="sitemap icon"></i>
+              <div class="content">
+                <a href="{{coin.explorer}}">Explorer</a>
+              </div>
+            </div>
+            <div class="item" *ngIf="coin.reddit">
+              <i class="globe icon"></i>
+              <div class="content">
+                <a class="ui small basic label" href="{{coin.reddit}}" *ngIf="coin.reddit">
+                  <i class="red reddit icon"></i>
+                  Reddit
                 </a>
-                <a class="ui mini label" *ngIf="coin.status && coin.status==='inactive'">
-                  {{coin.status}}
+                <a class="ui small basic label" href="{{coin.twitter}}" *ngIf="coin.twitter">
+                  <i class="blue twitter icon"></i>
+                  Twitter
+                </a>
+                <a class="ui small basic label" href="{{coin.chat}}" *ngIf="coin.chat">
+                  <i class="comments icon"></i>
+                  Chat
                 </a>
               </div>
             </div>
-          </h1>
-
-          <div class="ui hidden section divider"></div>
-          <div class="ui stackable grid">
-            <div class="eight wide column">
-              <div class="ui large relaxed list">
-                <div class="item">
-                  <i class="chart bar icon"></i>
-                  <div class="content">
-                    <div class="ui green horizontal label">Rank {{coin.cmcRank}}</div>
-                  </div>
-                </div>
-                <div class="item">
-                  <i class="linkify icon"></i>
-                  <div class="content">
-                    <a href="{{coin.website}}">Website</a>
-                  </div>
-                </div>
-                <div class="item">
-                  <i class="newspaper icon"></i>
-                  <div class="content">
-                    <a href="{{coin.messageBoard}}">Message Board</a>
-                  </div>
-                </div>
-                <div class="item">
-                  <i class="code icon"></i>
-                  <div class="content">
-                    <a href="{{coin.sourceCode}}">Source Code</a>
-                  </div>
-                </div>
-                <div class="item">
-                  <i class="text file outline icon"></i>
-                  <div class="content">
-                    <a href="{{coin.technicalDoc}}">Technical Document</a>
-                  </div>
-                </div>
-                <div class="item" *ngIf="coin.reddit">
-                  <i class="globe icon"></i>
-                  <div class="content">
-                    <a class="ui small basic label" href="{{coin.reddit}}" *ngIf="coin.reddit">
-                      <i class="red reddit icon"></i>
-                      Reddit
-                    </a>
-                  </div>
-                </div>
-                <div class="item">
-                  <i class="tag icon"></i>
-                  <div class="content">
-                    <div class="ui gray small horizontal label">Coin</div>
-                    <div class="ui gray small horizontal label" *ngIf="coin.mineable">Mineable</div>
-                  </div>
-                </div>
+            <div class="item">
+              <i class="tag icon"></i>
+              <div class="content">
+                <div class="ui gray small horizontal label">Coin</div>
+                <div class="ui gray small horizontal label" *ngIf="coin.mineable">Mineable</div>
               </div>
             </div>
-
-            <div class="eight wide right floated column">
-              <div class="ui one column grid">
-                <div class="column">
-                  <h3 class="ui header">
-                    <i class="dollar icon"></i>
-                    <div class="content">
-                      Price
-                    </div>
-                    ${{coin.price | number:'1.0-1'}} USD <span [ngStyle]="{'color': coin.percentChange24h | appPriceChange}">({{coin.percentChange24h | number:'1.0-2'}}%)</span>
-                  </h3>
-                </div>
-                <div class="column">
-                  <h4 class="ui header">
-                    <i class="dollar icon"></i>
-                    <div class="content">
-                      Market Cap
-                    </div>
-                    ${{coin.marketCap | number:'1.0-1'}} USD
-                  </h4>
-                </div>
-                <div class="column">
-                  <h4 class="ui header">
-                    <i class="dollar icon"></i>
-                    <div class="content">
-                      Circulating Supply
-                    </div>
-                    {{coin.circulatingSupply | number:'1.0-1'}} BTC
-                  </h4>
-                </div>
-              </div>
-            </div>
-
-            <div class="ui hidden divider"></div>
-            <div class="sixteen wide column">
-              <h2 class="ui header">Description</h2>
-              <div class="item">
+          </div>
+        </div>
+        <div class="four wide column">
+          <div class="ui one column grid">
+            <div class="column">
+              <h3 class="ui header">
+                <i class="dollar icon"></i>
                 <div class="content">
-                  <div class="description">
-                    <p>{{coin.description}}</p>
-                  </div>
-              </div>
+                  Price
+                </div>
+                ${{coin.price | number:'1.0-1'}} USD <span [ngStyle]="{'color': coin.percentChange24h | appPriceChange}">({{coin.percentChange24h | number:'1.0-2'}}%)</span>
+              </h3>
             </div>
-
-            <div class="ui hidden divider"></div>
-            <div class="sixteen wide column">
-              <div class="ui stackable grid">
-                <div class="eight wide column chart-column" *ngIf="pricesHistoryData">
-                  <h2 class="ui header">Price History</h2>
-                  <app-line-chart
-                    [view]="[500, 350]"
-                    [graphData]="pricesHistoryData"
-                    [showYAxisLabel]="true"
-                    [yAxisLabel]="'USD'">
-                  </app-line-chart>
+            <div class="column">
+              <h4 class="ui header">
+                <i class="dollar icon"></i>
+                <div class="content">
+                  Market Cap
                 </div>
-                <div class="eight wide column chart-column" *ngIf="predictionsData">
-                  <h2 class="ui header">Prediction</h2>
-                  <app-line-chart
-                    [view]="[500, 350]"
-                    [graphData]="predictionsData"
-                    [showYAxisLabel]="true"
-                    [yAxisLabel]="'USD'">
-                  </app-line-chart>
+                ${{coin.marketCap | number:'1.0-1'}} USD
+              </h4>
+            </div>
+            <div class="column">
+              <h4 class="ui header">
+                <i class="dollar icon"></i>
+                <div class="content">
+                  Circulating Supply
                 </div>
-              </div>
-
+                {{coin.circulatingSupply | number:'1.0-1'}} BTC
+              </h4>
+            </div>
           </div>
         </div>
       </div>
+
+      <div class="ui hidden divider"></div>
+
+      <div class="one column row">
+        <div class="column">
+          <h2 class="ui header">Description</h2>
+          <div class="item">
+            <div class="content">
+              <div class="description">
+                <p>{{coin.description}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="one column row" style="padding-top:0;">
+        <div class="center aligned column">
+          <div class="ui horizontal bulleted link list">
+            <a class="item" href="{{coin.announcement}}" *ngIf="coin.announcement">
+              Launch announcement
+            </a>
+            <a class="item" href="{{coin.seeAlso}}" *ngIf="coin.seeAlso">
+              See Also
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="ui hidden divider"></div>
+
+      <div class="two column bottom-padded row">
+        <div class="column chart-column" *ngIf="pricesHistoryData">
+          <h2 class="ui header">Price History</h2>
+          <app-line-chart
+            [view]="[500, 350]"
+            [graphData]="pricesHistoryData"
+            [showYAxisLabel]="true"
+            [yAxisLabel]="'USD'">
+          </app-line-chart>
+        </div>
+        <div class="column chart-column" *ngIf="predictionsData">
+          <h2 class="ui header">Prediction</h2>
+          <app-line-chart
+            [view]="[500, 350]"
+            [graphData]="predictionsData"
+            [showYAxisLabel]="true"
+            [yAxisLabel]="'USD'">
+          </app-line-chart>
+        </div>
+      </div>
     </div>
-    <app-newsfeed coinSymbol="{{coin.symbol}}" [pageSizeOptions]="[10, 20]" *ngIf="this.coin"></app-newsfeed>
-    <app-transactionsfeed coinSymbol="{{coin.symbol}}" [pageSizeOptions]="[10, 20]" *ngIf="this.coin"></app-transactionsfeed>
   </div>
+  <app-newsfeed coinSymbol="{{coin.symbol}}" [pageSizeOptions]="[10, 20]" *ngIf="this.coin"></app-newsfeed>
+  <app-transactionsfeed coinSymbol="{{coin.symbol}}" [pageSizeOptions]="[10, 20]" *ngIf="this.coin"></app-transactionsfeed>
 </div>

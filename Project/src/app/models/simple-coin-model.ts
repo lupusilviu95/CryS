@@ -9,6 +9,7 @@ export class SimpleCoinModel {
   cmcRank: string;
   description: string;
   mineable: string;
+  seeAlso: string;
   dateAdded: Date;
   marketCap: string;
   percentChange24h: string;
@@ -55,6 +56,7 @@ export class SimpleCoinModel {
       .chat(coinModel.chat ? coinModel.chat.value : null)
       .announcement(coinModel.announcement ? coinModel.announcement.value : null)
       .platform(coinModel.platform ? coinModel.platform.value : null)
+      .seeAlso(coinModel.seeAlso ? coinModel.seeAlso.value : null)
       .build();
   }
 }
