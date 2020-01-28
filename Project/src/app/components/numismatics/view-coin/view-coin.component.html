@@ -1,10 +1,17 @@
-<div class="ui container">
+<ngx-json-ld [json]="schema" *ngIf="this.coin"></ngx-json-ld>
+<div class="ui container" >
 
   <div style="padding-top:1em;">
     <mat-toolbar>Details</mat-toolbar>
   </div>
 
-  <div class="ui container very padded segment" style="margin-top: 0">
+  <div class="ui container very padded segment" *ngIf="!this.coin">
+    <p></p>
+    <div class="ui active inverted dimmer">
+      <div class="ui loader"></div>
+    </div>
+  </div>
+  <div class="ui container very padded segment" style="margin-top: 0" *ngIf="this.coin">
 
     <h1 class="ui header">
       <img class="ui image" src="{{coin.logo}}" alt="{{coin.name}}">

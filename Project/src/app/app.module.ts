@@ -39,6 +39,7 @@ import { PriceChangePipe } from './pipes/price-change-color.pipe';
 import { TimeElapsedPipe } from './pipes/time-elapsed.pipe';
 import { TransactionHashPipe } from './pipes/transaction-hash.pipe';
 import { WalletAddressPipe } from './pipes/wallet-address.pipe';
+import { NgxJsonLdModule } from 'ngx-json-ld';
 
 @NgModule({
   declarations: [
@@ -60,29 +61,30 @@ import { WalletAddressPipe } from './pipes/wallet-address.pipe';
     TimeElapsedPipe,
     LineChartComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatSidenavModule,
-    MatListModule,
-    MatToolbarModule,
-    MatCardModule,
-    LayoutModule,
-    MatButtonModule,
-    MatIconModule,
-    MatGridListModule,
-    FlexLayoutModule,
-    MatTableModule,
-    MatExpansionModule,
-    FormsModule,
-    HttpClientModule,
-    MatSortModule,
-    MatRippleModule,
-    MatPaginatorModule,
-    NgxChartsModule,
-    ServiceWorkerModule.register('./ngsw-worker.js', { enabled: environment.production })
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatSidenavModule,
+        MatListModule,
+        MatToolbarModule,
+        MatCardModule,
+        LayoutModule,
+        MatButtonModule,
+        MatIconModule,
+        MatGridListModule,
+        FlexLayoutModule,
+        MatTableModule,
+        MatExpansionModule,
+        FormsModule,
+        HttpClientModule,
+        MatSortModule,
+        MatRippleModule,
+        MatPaginatorModule,
+        NgxChartsModule,
+        ServiceWorkerModule.register('./ngsw-worker.js', {enabled: environment.production}),
+        NgxJsonLdModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

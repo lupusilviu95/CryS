@@ -36,21 +36,23 @@ export class ViewCoinComponent implements OnInit {
               private pricesService: PricesService,
               private predictionsService: PredictionsService) {
   }
-
+  schema: any;
+  coinId: string;
   coin: SimpleCoinModel;
   pricesHistoryData: LineGraphData;
   predictionsData: LineGraphData;
   news: Array<SimpleNewsModel> = new Array<SimpleNewsModel>();
 
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id');
-    this.cryptoCoinService.getCoin(id).pipe(
+    this.coinId = this.route.snapshot.paramMap.get('id');
+    this.cryptoCoinService.getCoin(this.coinId).pipe(
       flatMap((response: GetCryptoCoinsResult) => {
         return response.results.bindings;
       }),
       first(),
       flatMap((coin: CryptoCoinModel) => {
         this.coin = SimpleCoinModel.from(coin);
+        this.schema = SimpleCoinModel.toSchema(this.coin);
         return this.pricesService.getPriceHistory(this.coin.symbol, 0);
       }),
       flatMap((getPricesResponse: GetPricesResponse) => {
