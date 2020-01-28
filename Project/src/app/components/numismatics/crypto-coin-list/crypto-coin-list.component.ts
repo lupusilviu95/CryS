@@ -20,7 +20,7 @@ export class CryptoCoinListComponent implements OnInit {
   }
 
   pipeModeIcon = PriceChangePipeMode.ICON;
-
+  coinsLoaded = false;
   coins: Array<SimpleCoinModel> = new Array<SimpleCoinModel>();
 
   displayedColumns: string[] = ['cmcRank', 'name', 'symbol', 'marketCap', 'price', 'circulatingSupply', 'percent_change_24h'];
@@ -38,6 +38,7 @@ export class CryptoCoinListComponent implements OnInit {
         this.dataSource = new MatTableDataSource(this.coins);
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
+        this.coinsLoaded = true;
         return of([]);
       })
     ).subscribe();

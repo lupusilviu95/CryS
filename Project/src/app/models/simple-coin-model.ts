@@ -47,7 +47,7 @@ export class SimpleCoinModel {
       .reddit(coinModel.reddit ? coinModel.reddit.value : null)
       .logo(coinModel.logo ? coinModel.logo.value : null)
       .technicalDoc(coinModel.technical_doc ? coinModel.technical_doc.value : null)
-      .id(coinModel.coin ? coinModel.coin.value : null)
+      .id(coinModel.id ? coinModel.id.value : null)
       .percentChange7d(coinModel.percent_change_7d ? coinModel.percent_change_7d.value : null)
       .sourceCode(coinModel.source_code ? coinModel.source_code.value : null)
       .coin(coinModel.coin ? coinModel.coin.value : null)
@@ -61,7 +61,7 @@ export class SimpleCoinModel {
   }
 
   public static toSchema(simpleCoinModel: SimpleCoinModel): any {
-    const schema = {};
+    const schema: any = {};
     schema['@context'] = 'http://example.com/crys#';
     schema['@type'] = 'Coin';
     console.log(Object.keys(simpleCoinModel));
@@ -71,6 +71,10 @@ export class SimpleCoinModel {
         schema[property] = Reflect.get(simpleCoinModel, property);
       }
     });
+    const coinId = Reflect.get(simpleCoinModel, 'coin');
+    if (coinId) {
+      schema.id = Reflect.get(simpleCoinModel, 'coin');
+    }
     return schema;
   }
 }

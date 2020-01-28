@@ -1,5 +1,17 @@
-table {
+#coinsTable  {
   width: 100%;
+}
+
+#paginator {
+  margin-bottom: 1em;
+}
+
+#table-loader {
+  min-height: 8em;
+  border-color: #BCBCBC;
+  //margin-top:0;
+  //margin-bottom: 0;
+  //border: 0;
 }
 
 th.mat-sort-header-sorted {
