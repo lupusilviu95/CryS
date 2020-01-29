@@ -3,11 +3,8 @@ import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { of } from 'rxjs';
-import { flatMap } from 'rxjs/operators';
-import { GetNewsResult, NewsModel } from '../../../models/news-model';
+import { NewsModel } from '../../../models/news-model';
 import { SimpleNewsModel } from '../../../models/simple-news-model';
-import { NewsService } from '../../../services/news.service';
 
 @Component({
   selector: 'app-newsfeed',
@@ -24,43 +21,19 @@ import { NewsService } from '../../../services/news.service';
 export class NewsfeedComponent implements OnInit {
   @Input() coinSymbol: string;
   @Input() pageSizeOptions = [25, 50];
+  @Input() news: Array<SimpleNewsModel>;
 
   dataSource;
   displayedColumns: string[] = ['createDate', 'title'];
-  news: Array<SimpleNewsModel> = new Array<SimpleNewsModel>();
   expandedElement: NewsModel | null;
 
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
-  constructor(private newsService: NewsService) {
-  }
+  constructor() {}
 
   ngOnInit() {
-    if (this.coinSymbol) {
-      this.newsService.getNews(this.coinSymbol).pipe(
-        flatMap((newsResult: GetNewsResult) => {
-          this.loadData(newsResult);
-          return of([]);
-        })
-      ).subscribe();
-    } else {
-      this.newsService.getAllNews().pipe(
-        flatMap((newsResult: GetNewsResult) => {
-          this.loadData(newsResult);
-          return of([]);
-        })
-      ).subscribe();
-    }
-  }
-
-  loadData(newsData: GetNewsResult): void {
-    newsData.results.bindings.forEach(newsModel => {
-      if (newsModel.description.value.length > 0 && newsModel.news.value.length > 0) {
-        this.news.push(SimpleNewsModel.from(newsModel));
-      }
-    });
-    this.dataSource = new MatTableDataSource(this.news)
+    this.dataSource = new MatTableDataSource(this.news);
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
   }

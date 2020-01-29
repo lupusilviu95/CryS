@@ -181,6 +181,6 @@
       </div>
     </div>
   </div>
-  <app-newsfeed coinSymbol="{{coin.symbol}}" [pageSizeOptions]="[10, 20]" *ngIf="this.coin"></app-newsfeed>
-  <app-transactionsfeed coinSymbol="{{coin.symbol}}" [pageSizeOptions]="[10, 20]" *ngIf="this.coin"></app-transactionsfeed>
+  <app-newsfeed [news]="this.news" [pageSizeOptions]="[10, 20]" *ngIf="this.news && this.news.length > 0"></app-newsfeed>
+  <app-transactionsfeed [simpleTransactionsModel]="this.simpleTransactionsModel" [pageSizeOptions]="[10, 20]" *ngIf="this.simpleTransactionsModel && this.simpleTransactionsModel.transactions.length > 0"></app-transactionsfeed>
 </div>

@@ -3,11 +3,7 @@ import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { of } from 'rxjs';
-import { flatMap } from 'rxjs/operators';
 import { SimpleTransactionModel, SimpleTransactionsModel } from '../../../models/simple-transactions-model';
-import { GetTransactionsResponse } from '../../../models/transactions-model';
-import { TransactionsService } from '../../../services/transactions.service';
 
 @Component({
   selector: 'app-transactionsfeed',
@@ -24,41 +20,20 @@ import { TransactionsService } from '../../../services/transactions.service';
 export class TransactionsFeedComponent implements OnInit {
   @Input() coinSymbol: string;
   @Input() pageSizeOptions = [25, 50];
+  @Input() simpleTransactionsModel: SimpleTransactionsModel;
 
   dataSource;
   displayedColumns: string[] = ['hash', 'dateTraded', 'amountUsd'];
-  transactions: Array<SimpleTransactionModel> = new Array<SimpleTransactionModel>();
   expandedTransaction: SimpleTransactionModel | null;
 
-  constructor(private transactionService: TransactionsService) {
-  }
+  constructor() {}
 
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   ngOnInit() {
-    if (this.coinSymbol) {
-      this.transactionService.getTransactionsForCoin(this.coinSymbol).pipe(
-        flatMap((response: GetTransactionsResponse) => {
-          this.loadData(response);
-          return of([]);
-        })
-      ).subscribe();
-    } else {
-      this.transactionService.getTransactions().pipe(
-        flatMap(response => {
-          this.loadData(response);
-          return of([]);
-        })
-      ).subscribe();
-    }
-  }
-
-  loadData(data: GetTransactionsResponse): void {
-    this.transactions = SimpleTransactionsModel.from(data).transactions;
-    this.dataSource = new MatTableDataSource(this.transactions);
+    this.dataSource = new MatTableDataSource(this.simpleTransactionsModel.transactions);
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
   }
-
 }

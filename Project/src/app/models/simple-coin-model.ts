@@ -64,7 +64,6 @@ export class SimpleCoinModel {
     const schema: any = {};
     schema['@context'] = 'http://example.com/crys#';
     schema['@type'] = 'Coin';
-    console.log(Object.keys(simpleCoinModel));
     Object.keys(simpleCoinModel).forEach(property => {
       const value = Reflect.get(simpleCoinModel, property);
       if (value) {
