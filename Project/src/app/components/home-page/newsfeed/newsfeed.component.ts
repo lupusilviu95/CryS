@@ -19,7 +19,7 @@ import { SimpleNewsModel } from '../../../models/simple-news-model';
   ]
 })
 export class NewsfeedComponent implements OnInit {
-  @Input() coinSymbol: string;
+  @Input() showSymbols = true;
   @Input() pageSizeOptions = [25, 50];
   @Input() news: Array<SimpleNewsModel>;
 

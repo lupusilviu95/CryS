@@ -2,13 +2,10 @@
 <div class="ui container">
   <mat-toolbar style="margin-top:1em;">Cryptocurrencies</mat-toolbar>
 
-  <div id="table-loader" class="ui segment" *ngIf="!this.coinsLoaded" style="">
-    <div class="ui active dimmer">
-      <div class="ui loader"></div>
-    </div>
-  </div>
+  <table id="coinsTable" mat-table [dataSource]="dataSource"
+         matSort
+         class="mat-elevation-z8">
 
-  <table id="coinsTable" mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" *ngIf="this.coinsLoaded">
     <!-- Position Column -->
     <ng-container matColumnDef="cmcRank">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
@@ -67,6 +64,14 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row let coin; columns: displayedColumns;" routerLink="{{coin.id}}" ></tr>
   </table>
+
+  <!--  Spinner  -->
+  <div id="table-loader" class="ui segment" *ngIf="!this.coinsLoaded" style="">
+    <div class="ui active dimmer">
+      <div class="ui loader"></div>
+    </div>
+  </div>
+
   <mat-paginator id="paginator" [pageSizeOptions]="pageSizeOptions" showFirstLastButtons color="accent"></mat-paginator>
 </div>
 

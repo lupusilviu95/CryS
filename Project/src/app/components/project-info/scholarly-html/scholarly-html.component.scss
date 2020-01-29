@@ -3,6 +3,24 @@
 }
 
 .mat-raised-button {
-  margin: 1em;
   position: absolute;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+#fullscreen {
+  color: white;
+  padding: 0 1.25em;
+}
+#fullscreen:hover {
+  color: #BCBCBC;
+}
+
+.clickable {
+  cursor: pointer;
+}
+.clickable:hover {
+  color: #BCBCBC;
 }

@@ -1,23 +1,20 @@
 <div class="ui padded grid">
   <div class="column">
     <div class="ui container">
-      <div class="ui container">
-        <mat-toolbar (click)="goBack()" style="cursor: pointer">
-          <i class="big white angle left icon"></i>
-          <div class="content">
-            Scholarly Html Report
-          </div>
-        </mat-toolbar>
-      </div>
-      <div class="ui center aligned container">
-        <div class="ui list">
-          <div class="ui item">
-            <div class="ui content">
-              <iframe src="assets/scholarly-html/index.html" height="800em" width="100%"></iframe>
+
+        <mat-toolbar>
+            <i class="big white clickable angle left icon" (click)="goBack()"></i>
+            <div class="clickable content" (click)="goBack()">
+              Scholarly Html Report
             </div>
-          </div>
-        </div>
-      </div>
+          <span class="spacer"></span>
+            <a class="clickable" href="assets/scholarly-html/index.html">
+              <i id=fullscreen class="white expand icon"></i>
+            </a>
+        </mat-toolbar>
+
+        <iframe src="assets/scholarly-html/index.html" height="800em" width="100%"></iframe>
+
     </div>
   </div>
 </div>

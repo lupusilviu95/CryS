@@ -187,6 +187,7 @@
     </div>
   </div>
   <app-newsfeed [news]="this.news"
+                [showSymbols]="false"
                 [pageSizeOptions]="[10, 20]"
                 *ngIf="this.news && this.news.length > 0"
   ></app-newsfeed>

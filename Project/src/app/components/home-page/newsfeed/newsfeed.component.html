@@ -14,7 +14,7 @@
   <ng-container matColumnDef="title">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> Title </th>
     <td mat-cell *matCellDef="let newsArticle">
-      <div class="ui tiny labels news-about" style="float:right" *ngIf="newsArticle.abouts && !coinSymbol">
+      <div class="ui tiny labels news-about" style="float:right" *ngIf="newsArticle.abouts && showSymbols">
         <a class="ui horizontal label" *ngFor="let newsAbout of newsArticle.abouts" routerLink="/numismatics/{{newsAbout.id}}">
           {{newsAbout.symbol}}
         </a>

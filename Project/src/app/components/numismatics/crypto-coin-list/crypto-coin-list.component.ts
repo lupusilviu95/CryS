@@ -7,7 +7,6 @@ import { flatMap } from 'rxjs/operators';
 import { SimpleCoinModel } from '../../../models/simple-coin-model';
 import { PriceChangePipeMode } from '../../../pipes/price-change-pipe-mode.enum';
 import { CryptoCoinService } from '../../../services/crypto-coin.service';
-import { SimpleTransactionModel } from "../../../models/simple-transactions-model";
 
 @Component({
   selector: 'app-crypto-coin-list',
@@ -39,9 +38,9 @@ export class CryptoCoinListComponent implements OnInit {
         });
         this.addCoinsToSchema(this.coins);
         this.dataSource = new MatTableDataSource(this.coins);
+        this.coinsLoaded = true;
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
-        this.coinsLoaded = true;
         return of([]);
       })
     ).subscribe();
