@@ -23,7 +23,7 @@ export class CryptoCoinListComponent implements OnInit {
   coinsLoaded = false;
   coins: Array<SimpleCoinModel> = new Array<SimpleCoinModel>();
 
-  displayedColumns: string[] = ['cmcRank', 'name', 'symbol', 'marketCap', 'price', 'circulatingSupply', 'percent_change_24h'];
+  displayedColumns: string[] = ['cmcRank', 'name', 'symbol', 'marketCap', 'price', 'circulatingSupply', 'percentChange24h'];
   dataSource;
   schema: any;
 
