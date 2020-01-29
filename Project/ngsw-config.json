@@ -39,6 +39,15 @@
         "timeout": "3s",
         "strategy": "performance"
       }
+    },
+    {
+      "name": "scholarly-html",
+      "urls": ["/project-info/scholarly-html"],
+      "cacheConfig": {
+        "maxSize": 0,
+        "maxAge": "0u",
+        "strategy": "freshness"
+      }
     }
   ]
 }
