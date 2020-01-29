@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1580328536208,
+  "timestamp": 1580331063536,
   "index": "/CryS/index.html",
   "assetGroups": [
     {
@@ -79,6 +79,16 @@
       "maxSize": 10,
       "maxAge": 86400000,
       "timeoutMs": 3000,
+      "version": 1
+    },
+    {
+      "name": "scholarly-html",
+      "patterns": [
+        "\\/project-info\\/scholarly-html"
+      ],
+      "strategy": "freshness",
+      "maxSize": 0,
+      "maxAge": 0,
       "version": 1
     }
   ],
