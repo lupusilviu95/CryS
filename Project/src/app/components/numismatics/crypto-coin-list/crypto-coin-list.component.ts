@@ -7,6 +7,7 @@ import { flatMap } from 'rxjs/operators';
 import { SimpleCoinModel } from '../../../models/simple-coin-model';
 import { PriceChangePipeMode } from '../../../pipes/price-change-pipe-mode.enum';
 import { CryptoCoinService } from '../../../services/crypto-coin.service';
+import { SimpleTransactionModel } from "../../../models/simple-transactions-model";
 
 @Component({
   selector: 'app-crypto-coin-list',
@@ -25,6 +26,7 @@ export class CryptoCoinListComponent implements OnInit {
 
   displayedColumns: string[] = ['cmcRank', 'name', 'symbol', 'marketCap', 'price', 'circulatingSupply', 'percent_change_24h'];
   dataSource;
+  schema: any;
 
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
@@ -35,6 +37,7 @@ export class CryptoCoinListComponent implements OnInit {
         response.results.bindings.forEach(coinModel => {
           this.coins.push(SimpleCoinModel.from(coinModel));
         });
+        this.addCoinsToSchema(this.coins);
         this.dataSource = new MatTableDataSource(this.coins);
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
@@ -44,4 +47,20 @@ export class CryptoCoinListComponent implements OnInit {
     ).subscribe();
   }
 
+  initSchema(): void {
+    if (!this.schema) {
+      const schema: any = {};
+      schema['@context'] = 'http://example.com/crys#';
+      schema['@type'] = 'array';
+      this.schema = schema;
+    }
+  }
+
+  addCoinsToSchema(coins: Array<SimpleCoinModel>): void {
+    this.initSchema();
+    this.schema.items = [];
+    coins.forEach((coin: SimpleCoinModel) => {
+      this.schema.items.push(SimpleCoinModel.toSchema(coin));
+    });
+  }
 }

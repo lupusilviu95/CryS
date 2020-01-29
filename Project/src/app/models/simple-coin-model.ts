@@ -62,7 +62,6 @@ export class SimpleCoinModel {
 
   public static toSchema(simpleCoinModel: SimpleCoinModel): any {
     const schema: any = {};
-    schema['@context'] = 'http://example.com/crys#';
     schema['@type'] = 'Coin';
     Object.keys(simpleCoinModel).forEach(property => {
       const value = Reflect.get(simpleCoinModel, property);

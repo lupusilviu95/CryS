@@ -61,6 +61,7 @@ export class ViewCoinComponent implements OnInit {
       flatMap((coin: CryptoCoinModel) => {
         this.coin = SimpleCoinModel.from(coin);
         this.schema = SimpleCoinModel.toSchema(this.coin);
+        this.schema['@context'] = 'http://example.com/crys#';
         this.loadNews(this.coin.symbol);
         this.loadTransactions(this.coin.symbol);
         this.loadPredictions(this.coin.symbol);
