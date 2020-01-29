@@ -186,6 +186,13 @@
       </div>
     </div>
   </div>
-  <app-newsfeed [news]="this.news" [pageSizeOptions]="[10, 20]" *ngIf="this.news && this.news.length > 0"></app-newsfeed>
-  <app-transactionsfeed [simpleTransactionsModel]="this.simpleTransactionsModel" [pageSizeOptions]="[10, 20]" *ngIf="this.simpleTransactionsModel && this.simpleTransactionsModel.transactions.length > 0"></app-transactionsfeed>
+  <app-newsfeed [news]="this.news"
+                [pageSizeOptions]="[10, 20]"
+                *ngIf="this.news && this.news.length > 0"
+  ></app-newsfeed>
+  <p style="height: 0px; margin-top:1em"></p>
+  <app-transactionsfeed [simpleTransactionsModel]="this.simpleTransactionsModel"
+                        [pageSizeOptions]="[10, 20]"
+                        *ngIf="this.simpleTransactionsModel && this.simpleTransactionsModel.transactions.length > 0"
+  ></app-transactionsfeed>
 </div>
