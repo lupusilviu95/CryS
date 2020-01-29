@@ -34,4 +34,16 @@ export class SimpleTransactionModel {
       .build();
   }
 
+  public static toSchema(transaction: SimpleTransactionModel): any {
+    const schema: any = {};
+    schema['@type'] = 'Transaction';
+    Object.keys(transaction).forEach(property => {
+      const value = Reflect.get(transaction, property);
+      if (value !== null) {
+        schema[property] = Reflect.get(transaction, property);
+      }
+    });
+    return schema;
+  }
+
 }

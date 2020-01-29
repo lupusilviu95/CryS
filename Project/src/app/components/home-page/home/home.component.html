@@ -1,8 +1,25 @@
+<ngx-json-ld [json]="schema" *ngIf="this.news && this.simpleTransactionsModel"></ngx-json-ld>
 <div class="ui padded stackable grid">
-  <div class="eight wide column" *ngIf="this.news">
-    <app-newsfeed [news]="news"></app-newsfeed>
+  <div class="eight wide column">
+    <div *ngIf="!this.news">
+      <mat-toolbar>News</mat-toolbar>
+      <div class="ui container segment">
+        <div class="ui active inverted dimmer">
+          <div class="ui loader"></div>
+        </div>
+      </div>
+    </div>
+    <app-newsfeed [news]="news" *ngIf="this.news"></app-newsfeed>
   </div>
-  <div class="eight wide column" *ngIf="this.transactions">
-    <app-transactionsfeed [simpleTransactionsModel]="transactions"></app-transactionsfeed>
+  <div class="eight wide column">
+    <div *ngIf="!this.simpleTransactionsModel">
+      <mat-toolbar>News</mat-toolbar>
+      <div class="ui container segment">
+        <div class="ui active inverted dimmer">
+          <div class="ui loader"></div>
+        </div>
+      </div>
+    </div>
+    <app-transactionsfeed [simpleTransactionsModel]="simpleTransactionsModel" *ngIf="this.simpleTransactionsModel"></app-transactionsfeed>
   </div>
 </div>

@@ -2,8 +2,13 @@
 <div class="ui container" >
 
   <div style="padding-top:1em;">
-    <mat-toolbar>Details</mat-toolbar>
-  </div>
+
+    <mat-toolbar (click)="this.location.back()" style="cursor: pointer">
+      <i class="big white angle left icon"></i>
+      <div class="content">
+        Cryptocurrency
+      </div>
+    </mat-toolbar>
 
   <div class="ui container very padded segment" *ngIf="!this.coin" style="min-height:8em;margin-top:0">
     <p></p>

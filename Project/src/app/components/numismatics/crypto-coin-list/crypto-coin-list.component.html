@@ -7,7 +7,7 @@
     </div>
   </div>
 
-  <table id="coinsTable" mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  <table id="coinsTable" mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" *ngIf="this.coinsLoaded">
     <!-- Position Column -->
     <ng-container matColumnDef="cmcRank">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>

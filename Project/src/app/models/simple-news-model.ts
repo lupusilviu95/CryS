@@ -38,7 +38,6 @@ export class SimpleNewsModel {
 
   public static toSchema(simpleNewsModel: SimpleNewsModel): any {
     const schema: any = {};
-    schema['@context'] = 'http://example.com/crys#';
     schema['@type'] = 'News';
     Object.keys(simpleNewsModel).forEach(property => {
       const value = Reflect.get(simpleNewsModel, property);
